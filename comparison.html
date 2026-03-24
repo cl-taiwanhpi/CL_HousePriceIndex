@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title data-i18n="page.title.comparison">指數比較 – 臺灣住宅價格指數</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.2/dist/chart.umd.min.js"></script>
+  <script src="js/i18n.js"></script>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a class="nav-brand" href="index.html">🏠 Taiwan HPI</a>
+    <ul class="nav-links">
+      <li><a href="index.html"      data-i18n="nav.timeseries">時間序列</a></li>
+      <li><a href="map.html"        data-i18n="nav.gismap">地圖</a></li>
+      <li><a href="comparison.html" class="active" data-i18n="nav.comparison">指數比較</a></li>
+      <li><a href="methodology.html" data-i18n="nav.methodology">研究方法</a></li>
+    </ul>
+    <button id="lang-toggle" class="lang-btn"
+            onclick="setLang(document.documentElement.lang==='zh'?'en':'zh')">EN</button>
+  </div>
+</nav>
+
+<div class="hero">
+  <div class="hero-content">
+    <h1 data-i18n="comp.hero.title">臺灣住宅價格指數比較</h1>
+    <p  data-i18n="comp.hero.desc">CL 重複交易指數與官方（內政部）、信義、國泰及安富指數之比較，所有指數以 2012Q3 = 1.00 為基準。</p>
+  </div>
+</div>
+
+<div class="container">
+
+  <div class="note-box" data-i18n="comp.note">
+    ⚠️ <strong>資料涵蓋說明：</strong>信義、國泰、安富及官方指數的參考資料最後更新至 2023 年。2023Q3–2025Q4 的更新數據請至各來源網站下載。請參考<a href="scripts/README.md" style="color:var(--secondary)">更新說明</a>。
+  </div>
+
+  <!-- Download -->
+  <div class="download-bar">
+    <span data-i18n="comp.dl.label">📥 下載：</span>
+    <a class="btn btn-success btn-sm" href="data/comparison_indices.csv"  download
+       data-i18n="comp.dl.csv">所有指數 (CSV)</a>
+    <a class="btn btn-outline  btn-sm" href="data/comparison_indices.json" download
+       data-i18n="comp.dl.json">所有指數 (JSON)</a>
+  </div>
+
+  <!-- Comparison chart -->
+  <div class="card">
+    <div class="card-title" data-i18n="comp.chart.title">臺灣各住宅價格指數（基期：2012Q3 = 1.00）</div>
+
+    <div class="controls">
+      <div class="city-grid" id="index-chips" style="margin-bottom:0"></div>
+    </div>
+
+    <div class="chart-wrap chart-wrap-lg">
+      <canvas id="compChart"></canvas>
+    </div>
+
+    <p style="font-size:.77rem;color:var(--muted);margin-top:.75rem;"
+       data-i18n="comp.chart.note">
+      將滑鼠移至序列可查看詳細數值。點擊上方色塊切換指數顯示。
+    </p>
+  </div>
+
+  <!-- Index descriptions -->
+  <div class="card">
+    <div class="card-title" data-i18n="comp.about.title">各指數說明</div>
+    <div class="index-cards">
+
+      <div class="index-card" style="border-left-color:#e74c3c">
+        <h4 style="color:#e74c3c">
+          <span class="lang-zh">CL 指數（本研究）</span>
+          <span class="lang-en">CL Index (This Study)</span>
+        </h4>
+        <p class="lang-zh">以內政部實價登錄（APR）資料建構之重複交易指數，涵蓋14個地區，自2000Q1起算。使用地址、GPS 座標及房屋面積等四種配對方法。</p>
+        <p class="lang-en">Repeat-sales index constructed from Ministry of Interior Actual Price Registration (APR) data. Covers 14 regions from 2000Q1 onward. Four identification methods using address, GPS coordinates, and property area matching.</p>
+        <p style="margin-top:.4rem">
+          <strong><span class="lang-zh">涵蓋期間</span><span class="lang-en">Coverage</span>:</strong> 2000Q1–2025Q4 &nbsp;|&nbsp;
+          <strong><span class="lang-zh">基期</span><span class="lang-en">Base</span>:</strong> 2012Q3
+        </p>
+      </div>
+
+      <div class="index-card" style="border-left-color:#2980b9">
+        <h4 style="color:#2980b9">
+          <span class="lang-zh">官方住宅價格指數（內政部）</span>
+          <span class="lang-en">Official HPI (MOI / 住宅價格指數)</span>
+        </h4>
+        <p class="lang-zh">由內政部每季公布，涵蓋全國及六大都市，採用特徵價格模型並進行品質調整。請參考 <a href="https://pip.moi.gov.tw/Publicize/Info/E2010" target="_blank" style="color:var(--secondary)">pip.moi.gov.tw</a>。</p>
+        <p class="lang-en">Published quarterly by the Ministry of Interior. Covers national and six major cities. Uses a hedonic price model with quality adjustments. Available at <a href="https://pip.moi.gov.tw/Publicize/Info/E2010" target="_blank" style="color:var(--secondary)">pip.moi.gov.tw</a>.</p>
+        <p style="margin-top:.4rem">
+          <strong><span class="lang-zh">涵蓋期間</span><span class="lang-en">Coverage</span>:</strong> 2012Q3–<span class="lang-zh">至今</span><span class="lang-en">present</span> &nbsp;|&nbsp;
+          <strong><span class="lang-zh">基期</span><span class="lang-en">Base</span>:</strong> 2012Q3
+        </p>
+      </div>
+
+      <div class="index-card" style="border-left-color:#27ae60">
+        <h4 style="color:#27ae60">
+          <span class="lang-zh">信義房屋住宅價格指數</span>
+          <span class="lang-en">Sinyi HPI (信義房屋)</span>
+        </h4>
+        <p class="lang-zh">由信義房屋與政大不動產研究中心共同發布，以仲介交易資料為基礎，涵蓋8個主要城市，廣泛為分析師採用。資料來源：<a href="https://www.sinyinews.com.tw/quarterly" target="_blank" style="color:var(--secondary)">sinyinews.com.tw</a>。</p>
+        <p class="lang-en">Produced quarterly by Sinyi Real Estate in collaboration with NCCU Real Estate Research Center. Based on brokerage transaction data for 8 major cities. Widely used by analysts. Source: <a href="https://www.sinyinews.com.tw/quarterly" target="_blank" style="color:var(--secondary)">sinyinews.com.tw</a>.</p>
+        <p style="margin-top:.4rem">
+          <strong><span class="lang-zh">涵蓋期間</span><span class="lang-en">Coverage</span>:</strong> 2001Q1–<span class="lang-zh">至今</span><span class="lang-en">present</span> &nbsp;|&nbsp;
+          <strong><span class="lang-zh">基期</span><span class="lang-en">Base</span>:</strong> 2012Q3 (<span class="lang-zh">標準化</span><span class="lang-en">normalized</span>)
+        </p>
+      </div>
+
+      <div class="index-card" style="border-left-color:#f39c12">
+        <h4 style="color:#f39c12">
+          <span class="lang-zh">國泰房地產指數</span>
+          <span class="lang-en">Cathay HPI (國泰房地產指數)</span>
+        </h4>
+        <p class="lang-zh">由國泰房地產與政大共同發布，以預售屋案資料為基礎，反映新建房屋的價格趨勢。資料來源：<a href="https://www.cathay-red.com.tw/tw/About/House" target="_blank" style="color:var(--secondary)">cathay-red.com.tw</a>。</p>
+        <p class="lang-en">Published by Cathay Real Estate in collaboration with NCCU. Based on pre-sale housing project data. Reflects new construction price trends. Source: <a href="https://www.cathay-red.com.tw/tw/About/House" target="_blank" style="color:var(--secondary)">cathay-red.com.tw</a>.</p>
+        <p style="margin-top:.4rem">
+          <strong><span class="lang-zh">涵蓋期間</span><span class="lang-en">Coverage</span>:</strong> 2004Q1–<span class="lang-zh">至今</span><span class="lang-en">present</span> &nbsp;|&nbsp;
+          <strong><span class="lang-zh">基期</span><span class="lang-en">Base</span>:</strong> 2012Q3 (<span class="lang-zh">標準化</span><span class="lang-en">normalized</span>)
+        </p>
+      </div>
+
+      <div class="index-card" style="border-left-color:#8e44ad">
+        <h4 style="color:#8e44ad">
+          <span class="lang-zh">清大安富指數</span>
+          <span class="lang-en">AIFE/NTHU HPI (清大安富指數)</span>
+        </h4>
+        <p class="lang-zh">由國立清華大學安富研究室建構，採用不同計量方法，自2012Q3起算，最新資料每月更新，可於 <a href="https://aife.site.nthu.edu.tw" target="_blank" style="color:var(--secondary)">aife.site.nthu.edu.tw</a> 取得。</p>
+        <p class="lang-en">Constructed by the AIFE lab at National Tsing Hua University. Uses a different econometric approach. Starts from 2012Q3. More recent updates available monthly at <a href="https://aife.site.nthu.edu.tw" target="_blank" style="color:var(--secondary)">aife.site.nthu.edu.tw</a>.</p>
+        <p style="margin-top:.4rem">
+          <strong><span class="lang-zh">涵蓋期間</span><span class="lang-en">Coverage</span>:</strong> 2012Q3–<span class="lang-zh">至今</span><span class="lang-en">present</span> &nbsp;|&nbsp;
+          <strong><span class="lang-zh">基期</span><span class="lang-en">Base</span>:</strong> 2012Q3
+        </p>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Correlation table -->
+  <div class="card">
+    <div class="card-title" data-i18n="comp.corr.title">指數間相關係數（重疊期間 2012Q3–2023Q1）</div>
+    <div id="corr-table"></div>
+  </div>
+
+</div>
+
+<footer data-i18n="comp.footer">
+  臺灣住宅價格指數 &nbsp;|&nbsp;
+  資料來源：內政部、信義、國泰、安富/清大、CL 重複交易
+</footer>
+
+<script>
+let compData, compChart;
+let activeIndices = new Set(['cll','official','sinyi','cathay','aife']);
+
+fetch('data/comparison_indices.json').then(r => r.json()).then(data => {
+  compData = data;
+  buildIndexChips();
+  buildCompChart();
+  buildCorrTable();
+});
+
+function buildIndexChips() {
+  const container = document.getElementById('index-chips');
+  container.innerHTML = '';
+  Object.entries(compData.indices).forEach(([key, meta]) => {
+    const label = getIndexLabel(key, meta.label);
+    const chip = document.createElement('div');
+    chip.className = 'city-chip ' + (activeIndices.has(key) ? 'active' : 'inactive');
+    chip.style.color = meta.color;
+    chip.style.background = activeIndices.has(key) ? meta.color + '18' : '#f4f6f9';
+    chip.innerHTML = `<span class="swatch" style="background:${meta.color}"></span>${label}`;
+    chip.onclick = () => { toggleIndex(key); };
+    container.appendChild(chip);
+  });
+}
+
+function toggleIndex(key) {
+  if(activeIndices.has(key)) activeIndices.delete(key);
+  else activeIndices.add(key);
+  buildIndexChips();
+  updateCompChart();
+}
+
+function buildDatasets() {
+  return Object.entries(compData.indices)
+    .filter(([k]) => activeIndices.has(k))
+    .map(([k, meta]) => ({
+      label:           getIndexLabel(k, meta.label),
+      data:            meta.data,
+      borderColor:     meta.color,
+      backgroundColor: meta.color + '15',
+      borderWidth:     k === 'cll' ? 2.5 : 1.8,
+      borderDash:      k === 'cll' ? [] : (k === 'official' ? [] : [5,3]),
+      pointRadius:     0,
+      pointHoverRadius:5,
+      tension:         0.3,
+      fill:            false,
+    }));
+}
+
+function buildCompChart() {
+  const ctx = document.getElementById('compChart').getContext('2d');
+  compChart = new Chart(ctx, {
+    type: 'line',
+    data: { labels: compData.quarters, datasets: buildDatasets() },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      interaction: { mode: 'index', intersect: false },
+      plugins: {
+        legend: { display: false },
+        tooltip: {
+          callbacks: {
+            label: ctx => ` ${ctx.dataset.label}: ${ctx.parsed.y != null ? ctx.parsed.y.toFixed(3) : 'N/A'}`,
+          },
+          backgroundColor: 'rgba(20,30,50,.9)',
+          titleFont: { size: 12 },
+          bodyFont:  { size: 11 },
+        },
+      },
+      scales: {
+        x: {
+          grid: { color: '#e8edf3' },
+          ticks: { maxTicksLimit: 12, maxRotation: 0, font: { size: 11 } },
+        },
+        y: {
+          grid: { color: '#e8edf3' },
+          title: { display: true, text: t('comp.chart.yaxis'), font: { size: 12 } },
+          ticks: { font: { size: 11 }, callback: v => v.toFixed(2) },
+        },
+      },
+    },
+  });
+}
+
+function updateCompChart() {
+  if(!compChart) { buildCompChart(); return; }
+  compChart.data.datasets = buildDatasets();
+  compChart.update();
+}
+
+function buildCorrTable() {
+  const indexKeys = Object.keys(compData.indices);
+  const n = compData.quarters.length;
+
+  function getPairs(k1, k2) {
+    const d1 = compData.indices[k1].data;
+    const d2 = compData.indices[k2].data;
+    const pairs = [];
+    for(let i=0; i<n; i++) {
+      if(d1[i]!=null && d2[i]!=null) pairs.push([d1[i],d2[i]]);
+    }
+    return pairs;
+  }
+
+  function corr(pairs) {
+    if(pairs.length < 3) return null;
+    const x = pairs.map(p=>p[0]), y = pairs.map(p=>p[1]);
+    const mx = x.reduce((a,b)=>a+b)/x.length;
+    const my = y.reduce((a,b)=>a+b)/y.length;
+    const num = x.reduce((s,xi,i)=>s+(xi-mx)*(y[i]-my),0);
+    const den = Math.sqrt(x.reduce((s,xi)=>s+(xi-mx)**2,0)*y.reduce((s,yi)=>s+(yi-my)**2,0));
+    return den ? num/den : null;
+  }
+
+  const labels = indexKeys.map(k => getIndexLabel(k, compData.indices[k].label));
+  const cells = indexKeys.map(k1 =>
+    indexKeys.map(k2 => {
+      if(k1===k2) return '<td style="background:#f0f4f8;font-weight:700;text-align:center">1.000</td>';
+      const c = corr(getPairs(k1,k2));
+      const col = c == null ? '#ccc' :
+                  c > 0.99 ? '#1abc9c' :
+                  c > 0.95 ? '#27ae60' :
+                  c > 0.90 ? '#f39c12' : '#e74c3c';
+      return `<td style="text-align:center;color:${col};font-weight:600">${c!=null ? c.toFixed(3) : 'N/A'}</td>`;
+    })
+  );
+
+  const headerRow = `<tr><th></th>${labels.map(l=>`<th style="padding:.5rem .8rem;font-size:.8rem">${l}</th>`).join('')}</tr>`;
+  const bodyRows  = cells.map((row,i)=>
+    `<tr><th style="text-align:left;padding:.5rem .8rem;font-size:.8rem">${labels[i]}</th>${row.join('')}</tr>`
+  ).join('');
+
+  document.getElementById('corr-table').innerHTML = `
+    <table style="width:100%;border-collapse:collapse;font-size:.85rem">
+      <thead style="background:#f0f4f8;color:var(--primary)">${headerRow}</thead>
+      <tbody>${bodyRows}</tbody>
+    </table>
+    <p style="font-size:.75rem;color:var(--muted);margin-top:.5rem">
+      ${t('comp.corr.note')}
+    </p>`;
+}
+
+// ── Language change handler ───────────────────────────────────────
+function onLangChange(lang) {
+  if(!compData) return;
+  buildIndexChips();
+  buildCorrTable();
+  if(compChart) {
+    compChart.options.scales.y.title.text = t('comp.chart.yaxis');
+    compChart.data.datasets = buildDatasets();
+    compChart.update();
+  }
+}
+
+initLang();
+</script>
+</body>
+</html>

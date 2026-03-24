@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title data-i18n="page.title.index">臺灣住宅價格指數</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.2/dist/chart.umd.min.js"></script>
+  <script src="js/i18n.js"></script>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a class="nav-brand" href="index.html">🏠 Taiwan HPI</a>
+    <ul class="nav-links">
+      <li><a href="index.html"      class="active" data-i18n="nav.timeseries">時間序列</a></li>
+      <li><a href="map.html"                        data-i18n="nav.gismap">地圖</a></li>
+      <li><a href="comparison.html"                 data-i18n="nav.comparison">指數比較</a></li>
+      <li><a href="methodology.html"                data-i18n="nav.methodology">研究方法</a></li>
+    </ul>
+    <button id="lang-toggle" class="lang-btn"
+            onclick="setLang(document.documentElement.lang==='zh'?'en':'zh')">EN</button>
+  </div>
+</nav>
+
+<div class="hero">
+  <div class="hero-content">
+    <h1 data-i18n="index.hero.title">臺灣住宅價格指數</h1>
+    <p  data-i18n="index.hero.desc">以重複交易法建構臺灣14個行政區之季度與年度住宅價格指數，2000Q1–2025Q4。資料來源：內政部不動產交易實價登錄。</p>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <div class="hero-stat-num">14</div>
+        <div class="hero-stat-lbl lang-zh">行政區</div>
+        <div class="hero-stat-lbl lang-en">Regions</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">25+</div>
+        <div class="hero-stat-lbl lang-zh">年資料</div>
+        <div class="hero-stat-lbl lang-en">Years of Data</div>
+      </div>
+<div class="hero-stat">
+        <div class="hero-stat-num">10M+</div>
+        <div class="hero-stat-lbl lang-zh">交易筆數</div>
+        <div class="hero-stat-lbl lang-en">Transactions</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- Download bar -->
+  <div class="download-bar">
+    <span data-i18n="index.dl.label">📥 下載資料：</span>
+    <a class="btn btn-success btn-sm" href="data/cll_quarterly_index.csv" download
+       data-i18n="index.dl.q_csv">季指數 (CSV)</a>
+    <a class="btn btn-success btn-sm" href="data/cll_annual_index.csv"    download
+       data-i18n="index.dl.a_csv">年指數 (CSV)</a>
+    <a class="btn btn-outline  btn-sm" href="data/quarterly_cll.json"     download
+       data-i18n="index.dl.q_json">季指數 (JSON)</a>
+    <a class="btn btn-outline  btn-sm" href="data/annual_cll.json"        download
+       data-i18n="index.dl.a_json">年指數 (JSON)</a>
+  </div>
+
+  <!-- Chart card -->
+  <div class="card">
+    <div class="card-title">
+      <span data-i18n="index.chart.title">城市住宅價格指數</span>
+      <span class="update-badge" data-i18n="index.chart.badge">更新至 2025Q4</span>
+    </div>
+
+    <!-- Frequency toggle -->
+    <div class="controls">
+      <div class="freq-toggle">
+        <button id="btn-q" class="active" onclick="setFreq('quarterly')"
+                data-i18n="index.freq.q">季</button>
+        <button id="btn-a"               onclick="setFreq('annual')"
+                data-i18n="index.freq.a">年</button>
+      </div>
+      <span style="font-size:.8rem;color:var(--muted);margin-left:.5rem;"
+            data-i18n="index.freq.note">基期 = 2012Q3 &nbsp;|&nbsp; 點擊圖例切換城市</span>
+      <button class="btn btn-outline btn-sm" style="margin-left:auto"
+              onclick="selectAll(true)" data-i18n="index.btn.all">全選</button>
+      <button class="btn btn-outline btn-sm"
+              onclick="selectAll(false)" data-i18n="index.btn.clear">清除</button>
+    </div>
+
+    <!-- City chips -->
+    <div class="city-grid" id="city-chips"></div>
+
+    <!-- Chart -->
+    <div class="chart-wrap chart-wrap-lg">
+      <canvas id="tsChart"></canvas>
+    </div>
+
+    <p style="font-size:.77rem;color:var(--muted);margin-top:.75rem;"
+       data-i18n="index.chart.note">
+      將滑鼠移至任一序列可反白顯示。所有指數以 2012Q3 = 1.00 為基準。
+    </p>
+  </div>
+
+  <!-- Summary stats -->
+  <div class="card">
+    <div class="card-title" data-i18n="index.latest.title">最新指數值 — 2025Q4</div>
+    <div id="latest-table"></div>
+  </div>
+
+</div>
+
+<footer data-i18n="index.footer">
+  臺灣住宅價格指數 &nbsp;|&nbsp;
+  資料來源：內政部實價登錄 &nbsp;|&nbsp;
+  方法論：CL 重複交易指數
+</footer>
+
+<script>
+// ── Load data and build chart ─────────────────────────────────────
+let qData, aData, currentFreq = 'quarterly', tsChart;
+let activeSet = new Set();
+
+Promise.all([
+  fetch('data/quarterly_cll.json').then(r => r.json()),
+  fetch('data/annual_cll.json').then(r => r.json()),
+]).then(([q, a]) => {
+  qData = q; aData = a;
+  const defaultActive = ['all','taipei','newtaipei','taoyuan','hsinchu','taichung','kaohsiung'];
+  Object.keys(q.cities).forEach(k => { if(defaultActive.includes(k)) activeSet.add(k); });
+  buildChips();
+  buildChart();
+  buildLatestTable();
+});
+
+function buildChips() {
+  const data = currentFreq === 'quarterly' ? qData : aData;
+  const container = document.getElementById('city-chips');
+  container.innerHTML = '';
+  Object.entries(data.cities).forEach(([key, meta]) => {
+    const label = getCityLabel(key, meta.label);
+    const chip = document.createElement('div');
+    chip.className = 'city-chip ' + (activeSet.has(key) ? 'active' : 'inactive');
+    chip.style.color = meta.color;
+    chip.style.background = activeSet.has(key) ? meta.color + '18' : '#f4f6f9';
+    chip.innerHTML = `<span class="swatch" style="background:${meta.color}"></span>${label}`;
+    chip.onclick = () => toggleCity(key);
+    chip.dataset.key = key;
+    container.appendChild(chip);
+  });
+}
+
+function toggleCity(key) {
+  if(activeSet.has(key)) activeSet.delete(key);
+  else activeSet.add(key);
+  buildChips();
+  updateChart();
+}
+
+function selectAll(state) {
+  const data = currentFreq === 'quarterly' ? qData : aData;
+  if(state) Object.keys(data.cities).forEach(k => activeSet.add(k));
+  else activeSet.clear();
+  buildChips();
+  updateChart();
+}
+
+function setFreq(freq) {
+  currentFreq = freq;
+  document.getElementById('btn-q').classList.toggle('active', freq === 'quarterly');
+  document.getElementById('btn-a').classList.toggle('active', freq === 'annual');
+  buildChips();
+  if(tsChart) { tsChart.destroy(); tsChart = null; }
+  buildChart();
+}
+
+function buildDatasets() {
+  const data = currentFreq === 'quarterly' ? qData : aData;
+  return Object.entries(data.cities)
+    .filter(([k]) => activeSet.has(k))
+    .map(([k, meta]) => ({
+      label:           getCityLabel(k, meta.label),
+      data:            meta.data,
+      borderColor:     meta.color,
+      backgroundColor: meta.color + '22',
+      borderWidth:     k === 'all' ? 2.5 : 1.5,
+      pointRadius:     0,
+      pointHoverRadius:5,
+      tension:         0.3,
+      fill:            false,
+    }));
+}
+
+function buildChart() {
+  const data   = currentFreq === 'quarterly' ? qData : aData;
+  const labels = currentFreq === 'quarterly' ? data.quarters : data.years.map(String);
+  const ctx    = document.getElementById('tsChart').getContext('2d');
+
+  tsChart = new Chart(ctx, {
+    type: 'line',
+    data: { labels, datasets: buildDatasets() },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      interaction: { mode: 'index', intersect: false },
+      plugins: {
+        legend: { display: false },
+        tooltip: {
+          callbacks: {
+            label: ctx => ` ${ctx.dataset.label}: ${ctx.parsed.y != null ? ctx.parsed.y.toFixed(3) : 'N/A'}`,
+          },
+          backgroundColor: 'rgba(20,30,50,.9)',
+          titleFont: { size: 12 },
+          bodyFont:  { size: 11 },
+        },
+      },
+      scales: {
+        x: {
+          grid: { color: '#e8edf3' },
+          ticks: { maxTicksLimit: 12, maxRotation: 0, font: { size: 11 } },
+        },
+        y: {
+          grid: { color: '#e8edf3' },
+          title: { display: true, text: t('index.chart.yaxis'), font: { size: 12 } },
+          ticks: { font: { size: 11 }, callback: v => v.toFixed(2) },
+        },
+      },
+      onHover: (evt, elements) => highlightSeries(elements),
+    },
+  });
+
+  const canvas = document.getElementById('tsChart');
+  canvas.addEventListener('mouseleave', () => resetHighlight());
+}
+
+function updateChart() {
+  if(!tsChart) { buildChart(); return; }
+  const data   = currentFreq === 'quarterly' ? qData : aData;
+  const labels = currentFreq === 'quarterly' ? data.quarters : data.years.map(String);
+  tsChart.data.labels   = labels;
+  tsChart.data.datasets = buildDatasets();
+  tsChart.update();
+}
+
+let highlightTimeout;
+function highlightSeries(elements) {
+  if(!tsChart || !elements.length) return;
+  clearTimeout(highlightTimeout);
+  const idx = elements[0].datasetIndex;
+  tsChart.data.datasets.forEach((ds, i) => {
+    ds.borderWidth = i === idx ? 3.5 : 0.7;
+    ds.borderColor = i === idx ? ds.borderColor : ds.borderColor + '55';
+  });
+  tsChart.update('none');
+}
+function resetHighlight() {
+  if(!tsChart) return;
+  const data = currentFreq === 'quarterly' ? qData : aData;
+  tsChart.data.datasets.forEach(ds => {
+    const key = Object.keys(data.cities).find(k => getCityLabel(k, data.cities[k].label) === ds.label);
+    ds.borderColor = data.cities[key]?.color || ds.borderColor.slice(0,7);
+    ds.borderWidth = key === 'all' ? 2.5 : 1.5;
+  });
+  tsChart.update('none');
+}
+
+let latestStats = null;
+let sortCol = 'latest_val', sortAsc = false;
+
+function buildLatestTable() {
+  const doRender = (stats) => {
+    latestStats = stats;
+    renderLatestTable();
+  };
+  if(latestStats) { doRender(latestStats); return; }
+  fetch('data/latest_stats.json').then(r => r.json()).then(doRender);
+}
+
+function sortBy(col) {
+  if(sortCol === col) sortAsc = !sortAsc;
+  else { sortCol = col; sortAsc = false; }
+  renderLatestTable();
+}
+
+function renderLatestTable() {
+  const stats = latestStats;
+  if(!stats) return;
+
+  const colMap = { latest_val: 0, qoq_growth: 1, yoy_growth: 2 };
+  const indicator = (col) => {
+    if(sortCol !== col) return ' <span style="opacity:.3;font-size:.7rem">⇅</span>';
+    return sortAsc
+      ? ' <span style="font-size:.7rem">▲</span>'
+      : ' <span style="font-size:.7rem">▼</span>';
+  };
+
+  const thStyle = (col) =>
+    `padding:.6rem .8rem;text-align:right;cursor:pointer;user-select:none;white-space:nowrap;` +
+    (sortCol === col ? 'color:var(--secondary);' : '');
+
+  const rows = Object.entries(stats)
+    .sort((a, b) => {
+      const va = a[1][sortCol] ?? -Infinity;
+      const vb = b[1][sortCol] ?? -Infinity;
+      return sortAsc ? va - vb : vb - va;
+    })
+    .map(([key, s]) => {
+      const qoqColor = s.qoq_growth > 0 ? 'var(--accent)' : s.qoq_growth < 0 ? 'var(--success)' : 'var(--muted)';
+      const yoyColor = s.yoy_growth > 0 ? 'var(--accent)' : s.yoy_growth < 0 ? 'var(--success)' : 'var(--muted)';
+      const qoqArrow = s.qoq_growth > 0 ? '▲' : '▼';
+      const yoyArrow = s.yoy_growth > 0 ? '▲' : '▼';
+      const label = getCityLabel(key, s.label);
+      return `<tr>
+        <td><strong>${label}</strong></td>
+        <td style="text-align:right">${s.latest_val.toFixed(3)}</td>
+        <td style="text-align:right;color:${qoqColor}">${qoqArrow} ${Math.abs(s.qoq_growth)}%</td>
+        <td style="text-align:right;color:${yoyColor}">${yoyArrow} ${Math.abs(s.yoy_growth)}%</td>
+      </tr>`;
+    }).join('');
+
+  document.getElementById('latest-table').innerHTML = `
+    <table class="stats-table">
+      <thead>
+        <tr>
+          <th style="text-align:left">${t('index.tbl.region')}</th>
+          <th style="${thStyle('latest_val')}" onclick="sortBy('latest_val')">${t('index.tbl.index')}${indicator('latest_val')}</th>
+          <th style="${thStyle('qoq_growth')}" onclick="sortBy('qoq_growth')">${t('index.tbl.qoq')}${indicator('qoq_growth')}</th>
+          <th style="${thStyle('yoy_growth')}" onclick="sortBy('yoy_growth')">${t('index.tbl.yoy')}${indicator('yoy_growth')}</th>
+        </tr>
+      </thead>
+      <tbody>${rows}</tbody>
+    </table>
+    <p style="font-size:.75rem;color:var(--muted);margin-top:.5rem">
+      ${t('index.tbl.note')}
+    </p>`;
+}
+
+// ── Language change handler ───────────────────────────────────────
+function onLangChange(lang) {
+  if(!qData) return;
+  buildChips();
+  renderLatestTable();
+  // Update chart y-axis label
+  if(tsChart) {
+    tsChart.options.scales.y.title.text = t('index.chart.yaxis');
+    tsChart.data.datasets = buildDatasets();
+    tsChart.update();
+  }
+}
+
+initLang();
+</script>
+</body>
+</html>
