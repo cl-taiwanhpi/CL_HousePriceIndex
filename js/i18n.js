@@ -30,7 +30,7 @@ const TRANSLATIONS = {
     'index.dl.a_csv':      '年指數 (CSV)',
     'index.dl.q_json':     '季指數 (JSON)',
     'index.dl.a_json':     '年指數 (JSON)',
-    'index.chart.title':   '城市住宅價格指數',
+    'index.chart.title':   'CL 住宅價格指數：按縣市',
     'index.chart.badge':   '更新至 2025Q4',
     'index.freq.q':        '季',
     'index.freq.a':        '年',
