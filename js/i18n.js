@@ -23,7 +23,7 @@ const TRANSLATIONS = {
     'nav.methodology': '研究方法',
 
     /* ── index.html ──────────────────────────────────────────────── */
-    'index.hero.title':    '臺灣住宅價格指數',
+    'index.hero.title':    'CL 臺灣住宅價格指數',
     'index.hero.desc':     '以重複交易法建構臺灣15個行政區之季度與年度住宅價格指數，2000Q1–2025Q4。資料來源：內政部不動產交易實價登錄。',
     'index.dl.label':      '📥 下載資料：',
     'index.dl.q_csv':      '季指數 (CSV)',
@@ -49,7 +49,7 @@ const TRANSLATIONS = {
 
     /* ── comparison.html ─────────────────────────────────────────── */
     'comp.hero.title':    '臺灣住宅價格指數比較',
-    'comp.hero.desc':     'CL 重複交易指數與官方（內政部）、信義、國泰及安富指數之比較，所有指數以 2012Q3 = 1.00 為基準。',
+    'comp.hero.desc':     'CL 指數與官方（內政部）、信義、國泰及安富指數之比較，所有指數以 2012Q3 = 1.00 為基準。',
     'comp.note':          '💡 <strong>資料涵蓋：</strong>CL 指數涵蓋至 2025Q4；信義（2025Q4）、國泰（2025Q4）、安富（2025Q4）及官方（2025Q3）指數已更新至最新可取得資料。',
     'comp.dl.label':      '📥 下載：',
     'comp.dl.csv':        '所有指數 (CSV)',
@@ -113,7 +113,7 @@ const TRANSLATIONS = {
     'nav.methodology': 'Methodology',
 
     /* ── index.html ──────────────────────────────────────────────── */
-    'index.hero.title':    'Taiwan Housing Price Index',
+    'index.hero.title':    'CL Taiwan Housing Price Index',
     'index.hero.desc':     'Repeat-sales based housing price indices for 15 regions of Taiwan, 2000Q1–2025Q4. Based on transaction-level data from the Ministry of Interior.',
     'index.dl.label':      '📥 Download Data:',
     'index.dl.q_csv':      'Quarterly Index (CSV)',
