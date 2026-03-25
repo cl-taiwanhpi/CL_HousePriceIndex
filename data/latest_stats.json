@@ -2,98 +2,98 @@
   "all": {
     "label": "Taiwan Overall",
     "latest_q": "2025Q4",
-    "latest_val": 3.3947,
+    "latest_val": 3.2441,
     "qoq_growth": 0.11,
     "yoy_growth": 1.14
   },
   "taipei": {
     "label": "Taipei City",
     "latest_q": "2025Q4",
-    "latest_val": 3.608,
+    "latest_val": 3.1762,
     "qoq_growth": -0.56,
     "yoy_growth": 5.81
   },
   "taichung": {
     "label": "Taichung City",
     "latest_q": "2025Q4",
-    "latest_val": 2.9073,
+    "latest_val": 2.9989,
     "qoq_growth": -3.6,
     "yoy_growth": -5.13
   },
   "keelung": {
     "label": "Keelung City",
     "latest_q": "2025Q4",
-    "latest_val": 3.0769,
+    "latest_val": 2.6424,
     "qoq_growth": -2.26,
     "yoy_growth": 7.13
   },
   "tainan": {
     "label": "Tainan City",
     "latest_q": "2025Q4",
-    "latest_val": 3.7692,
+    "latest_val": 3.4186,
     "qoq_growth": 1.9,
     "yoy_growth": 5.96
   },
   "kaohsiung": {
     "label": "Kaohsiung City",
     "latest_q": "2025Q4",
-    "latest_val": 2.3407,
+    "latest_val": 2.4683,
     "qoq_growth": -0.1,
     "yoy_growth": -1.86
   },
   "newtaipei": {
     "label": "New Taipei City",
     "latest_q": "2025Q4",
-    "latest_val": 3.1789,
+    "latest_val": 3.2764,
     "qoq_growth": -1.77,
     "yoy_growth": -1.07
   },
   "taoyuan": {
     "label": "Taoyuan City",
     "latest_q": "2025Q4",
-    "latest_val": 2.2168,
+    "latest_val": 2.556,
     "qoq_growth": 0.7,
     "yoy_growth": 2.53
   },
   "chiayi": {
     "label": "Chiayi City/County",
     "latest_q": "2025Q4",
-    "latest_val": 2.4057,
+    "latest_val": 2.3747,
     "qoq_growth": -5.1,
     "yoy_growth": 2.83
   },
   "hsinchu": {
     "label": "Hsinchu City/County",
     "latest_q": "2025Q4",
-    "latest_val": 4.9644,
+    "latest_val": 5.5617,
     "qoq_growth": 13.68,
     "yoy_growth": 9.59
   },
   "yunlin": {
     "label": "Yunlin County",
     "latest_q": "2025Q4",
-    "latest_val": 2.6432,
+    "latest_val": 2.2046,
     "qoq_growth": 5.87,
     "yoy_growth": 9.87
   },
   "pingtung": {
     "label": "Pingtung County",
     "latest_q": "2025Q4",
-    "latest_val": 2.8487,
+    "latest_val": 2.6609,
     "qoq_growth": 16.85,
     "yoy_growth": 16.49
   },
   "hualien": {
     "label": "Hualien County",
     "latest_q": "2025Q4",
-    "latest_val": 3.7874,
+    "latest_val": 3.6194,
     "qoq_growth": -8.83,
     "yoy_growth": -5.65
   },
   "taitung": {
     "label": "Taitung County",
     "latest_q": "2025Q4",
-    "latest_val": 2.7711,
+    "latest_val": 2.6482,
     "qoq_growth": -4.86,
     "yoy_growth": -9.1
   }
