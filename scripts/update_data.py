@@ -280,19 +280,20 @@ def main():
     Source: https://www.sinyinews.com.tw/quarterly
     or:     https://www.ncscre.nccu.edu.tw/taxonomy/term/8
     Action: Download the latest quarterly report, read off the
-            aggregate sinyi_all value (2012Q3-normalized), and
-            append rows to data/sinyi_hpi.csv:
+            aggregate sinyi_all value and append rows to data/sinyi_hpi.csv.
+            NOTE: the file is now normalized to 2001Q1 = 1.00. Divide each
+            raw value by the source's 2001Q1 value before appending:
               quarter,sinyi_all
-              2023Q3,<value>
+              2023Q3,<value / sinyi_2001Q1>
               ...
 
  2. CATHAY HPI
     Source: https://www.cathay-red.com.tw/tw/About/House
     Action: Download the latest quarterly PDF. The cathay_all value
-            (normalized to 2012Q3=1) is in the index table.
-            Append to data/cathay_hpi.csv:
+            NOTE: the file is now normalized to 2001Q1 = 1.00. Divide each
+            raw value by the source's 2001Q1 value before appending:
               quarter,cathay_all
-              2023Q3,<value>
+              2023Q3,<value / cathay_2001Q1>
               ...
 
  3. AIFE/NTHU HPI
@@ -306,10 +307,11 @@ def main():
  4. OFFICIAL MOI HPI
     Source: https://pip.moi.gov.tw/Publicize/Info/E2010
     Action: Click "住宅價格指數", select quarterly, download Excel.
-            Normalize to 2012Q3=1 (divide each value by the 2012Q3 value).
+            NOTE: the file is now on the 2001Q1 scale. Divide the raw value
+            by the source's 2012Q3 value, then multiply by 1.357359.
             Append to data/official_hpi.csv:
               quarter,govt_all
-              2023Q2,<value>
+              2023Q2,<raw / raw_2012Q3 * 1.357359>
               ...
 
  After adding the CSV files to website/data/, re-run this script.
