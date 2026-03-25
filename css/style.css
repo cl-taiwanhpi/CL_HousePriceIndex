@@ -468,6 +468,23 @@ nav {
   flex-shrink: 0;
 }
 
+/* Language toggle shown only inside mobile menu */
+.nav-lang-inline { display: none; }
+.nav-lang-inline button {
+  background: rgba(255,255,255,.12);
+  color: rgba(255,255,255,.9);
+  border: 1px solid rgba(255,255,255,.28);
+  border-radius: 6px;
+  padding: .4rem 1rem;
+  font-size: .88rem;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: inherit;
+  letter-spacing: .04em;
+  margin: .3rem .75rem;
+  width: calc(100% - 1.5rem);
+}
+
 @media (max-width: 680px) {
   /* Nav */
   .nav-toggle { display: flex; align-items: center; }
