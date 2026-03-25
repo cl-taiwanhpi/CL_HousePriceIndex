@@ -11,7 +11,7 @@
 const TRANSLATIONS = {
   zh: {
     /* ── Page titles ─────────────────────────────────────────────── */
-    'page.title.index':       '臺灣住宅價格指數',
+    'page.title.index':       'CL 臺灣住宅價格指數',
     'page.title.comparison':  '指數比較 – 臺灣住宅價格指數',
     'page.title.map':         '地圖 – 臺灣住宅價格指數',
     'page.title.methodology': '研究方法 – 臺灣住宅價格指數',
@@ -101,7 +101,7 @@ const TRANSLATIONS = {
 
   en: {
     /* ── Page titles ─────────────────────────────────────────────── */
-    'page.title.index':       'Taiwan Housing Price Index',
+    'page.title.index':       'CL Taiwan Housing Price Index',
     'page.title.comparison':  'Index Comparison – Taiwan HPI',
     'page.title.map':         'GIS Map – Taiwan HPI',
     'page.title.methodology': 'Methodology – Taiwan HPI',
