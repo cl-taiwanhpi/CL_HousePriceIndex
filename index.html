@@ -1,69 +1,362 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html>
+<!DOCTYPE html>
+<html lang="zh">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta http-equiv="Content-Style-Type" content="text/css">
-  <title></title>
-  <meta name="Generator" content="Cocoa HTML Writer">
-  <meta name="CocoaVersion" content="2299.6">
-  <style type="text/css">
-    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px 'Songti TC'; color: #0000e9; -webkit-text-stroke: #0000e9}
-    p.p3 {margin: 0.0px 0.0px 0.0px 0.0px; font: 11.0px 'Helvetica Neue'; color: #000000; color: rgba(0, 0, 0, 0.85); -webkit-text-stroke: rgba(0, 0, 0, 0.85)}
-    p.p5 {margin: 0.0px 0.0px 12.0px 0.0px; font: 12.0px 'Songti TC'; -webkit-text-stroke: #000000}
-    p.p6 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px 'Songti TC'; -webkit-text-stroke: #000000}
-    p.p7 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px 'Songti TC'; color: #152b4a; -webkit-text-stroke: #152b4a; background-color: #e5f1fa}
-    p.p8 {margin: 0.0px 0.0px 0.0px 0.0px; font: 11.0px 'PingFang TC'; color: #000000; color: rgba(0, 0, 0, 0.85); -webkit-text-stroke: rgba(0, 0, 0, 0.85)}
-    p.p9 {margin: 0.0px 0.0px 0.0px 0.0px; font: 9.6px 'Songti TC'; -webkit-text-stroke: #000000}
-    p.p10 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px 'Songti TC'; -webkit-text-stroke: #000000; min-height: 17.0px}
-    p.p11 {margin: 0.0px 0.0px 9.2px 0.0px; font: 9.2px 'Songti TC'; -webkit-text-stroke: #000000}
-    li.li1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px 'Songti TC'; color: #0000e9; -webkit-text-stroke: #0000e9}
-    li.li2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px 'Songti TC'; color: #0000e9}
-    span.s1 {font: 12.0px 'Apple Color Emoji'; text-decoration: underline ; font-kerning: none}
-    span.s2 {font: 12.0px 'Songti TC'; text-decoration: underline ; font-kerning: none}
-    span.s3 {-webkit-text-stroke: 0px #000000}
-    span.s4 {text-decoration: underline ; font-kerning: none}
-    span.s5 {text-decoration: underline ; font-kerning: none; -webkit-text-stroke: 0px #0000e9}
-    span.s6 {font-kerning: none; background-color: #b3b3b3}
-    span.s7 {font: 12.0px 'Songti TC'; font-kerning: none; color: #000000; -webkit-text-stroke: 0px #000000}
-    span.s8 {font: 11.0px 'Apple Symbols'; font-kerning: none; background-color: #b3b3b3}
-    span.s9 {font-kerning: none}
-    span.s10 {font: 12.0px 'Apple Color Emoji'; font-kerning: none; color: #000000; -webkit-text-stroke: 0px #000000}
-    span.s11 {font-kerning: none; color: #000000; -webkit-text-stroke: 0px #000000}
-    span.s12 {font: 12.0px 'Songti TC'; font-kerning: none}
-    span.s13 {font: 11.0px 'PingFang TC'; font-kerning: none; color: rgba(0, 0, 0, 0.85); background-color: #b3b3b3; -webkit-text-stroke: 0px rgba(0, 0, 0, 0.85)}
-    ul.ul1 {list-style-type: disc}
-  </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title data-i18n="page.title.index">臺灣住宅價格指數</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.2/dist/chart.umd.min.js"></script>
+  <script src="js/i18n.js"></script>
 </head>
 <body>
-<p class="p1"><span class="s1"><a href="file:///Users/chun-chechi/Library/CloudStorage/Dropbox/Taiwan%20Price%20Index_edit/website/index.html">🏠<span class="s2"> Taiwan HPI</span></a></span></p>
-<ul class="ul1">
-  <li class="li1"><span class="s3"><a href="file:///Users/chun-chechi/Library/CloudStorage/Dropbox/Taiwan%20Price%20Index_edit/website/index.html"><span class="s4">時間序列</span></a></span></li>
-  <li class="li2"><a href="file:///Users/chun-chechi/Library/CloudStorage/Dropbox/Taiwan%20Price%20Index_edit/website/map.html"><span class="s5">地圖</span></a></li>
-  <li class="li1"><span class="s3"><a href="file:///Users/chun-chechi/Library/CloudStorage/Dropbox/Taiwan%20Price%20Index_edit/website/comparison.html"><span class="s4">指數比較</span></a></span></li>
-  <li class="li1"><span class="s3"><a href="file:///Users/chun-chechi/Library/CloudStorage/Dropbox/Taiwan%20Price%20Index_edit/website/methodology.html"><span class="s4">研究方法</span></a></span></li>
-</ul>
-<p class="p3"><span class="s6">EN</span><span class="s7"> </span><span class="s8">☰</span></p>
-<h1 style="margin: 0.0px 0.0px 16.1px 0.0px; font: 24.0px 'Songti TC'; -webkit-text-stroke: #000000"><span class="s9"><b>臺灣住宅價格指數</b></span></h1>
-<p class="p5"><span class="s9">以重複交易法建構臺灣14個行政區之季度與年度住宅價格指數，2000Q1–2025Q4。資料來源：內政部不動產交易實價登錄。</span></p>
-<p class="p6"><span class="s9">15</span></p>
-<p class="p6"><span class="s9">行政區</span></p>
-<p class="p6"><span class="s9">Regions</span></p>
-<p class="p6"><span class="s9">25+</span></p>
-<p class="p6"><span class="s9">年資料</span></p>
-<p class="p6"><span class="s9">Years of Data</span></p>
-<p class="p6"><span class="s9">10M+</span></p>
-<p class="p6"><span class="s9">交易筆數</span></p>
-<p class="p6"><span class="s9">Transactions</span></p>
-<p class="p7"><span class="s9">本 CL 指數由 <b>紀鈞哲</b>（中央研究院經濟研究所）與 <b>Cameron LaPoint</b>（耶魯大學管理學院）建構。 若使用本資料集，請引用：Chi, Chun-Che, Cameron LaPoint, and Ming-Jen Lin. (2026) "Flip or Flop? Tobin Taxes in the Real Estate Market." The CL index is constructed by <b>Chun-Che Chi</b> (Academia Sinica, Institute of Economics) and <b>Cameron LaPoint</b> (Yale University, School of Management). For publication use, please cite: Chi, Chun-Che, Cameron LaPoint, and Ming-Jen Lin. "Flip or Flop? Tobin Taxes in the Real Estate Market."</span></p>
-<p class="p1"><span class="s10">📥</span><span class="s11"> 下載資料： <a href="file:///Users/chun-chechi/Library/CloudStorage/Dropbox/Taiwan%20Price%20Index_edit/website/data/cll_quarterly_index.csv"><span class="s5">季指數 (CSV)</span></a> <a href="file:///Users/chun-chechi/Library/CloudStorage/Dropbox/Taiwan%20Price%20Index_edit/website/data/cll_annual_index.csv"><span class="s5">年指數 (CSV)</span></a> <a href="file:///Users/chun-chechi/Library/CloudStorage/Dropbox/Taiwan%20Price%20Index_edit/website/data/quarterly_cll.json"><span class="s5">季指數 (JSON)</span></a> <a href="file:///Users/chun-chechi/Library/CloudStorage/Dropbox/Taiwan%20Price%20Index_edit/website/data/annual_cll.json"><span class="s5">年指數 (JSON)</span></a></span></p>
-<p class="p6"><span class="s9">城市住宅價格指數 更新至 2025Q4</span></p>
-<p class="p8"><span class="s6">季</span><span class="s7"> </span><span class="s6">年</span></p>
-<p class="p9"><span class="s9">基期 = 2012Q3  |  點擊圖例切換城市</span><span class="s12"> </span><span class="s13">全選</span><span class="s12"> </span><span class="s13">清除</span></p>
-<p class="p10"><span class="s9"></span><br></p>
-<p class="p10"><span class="s9"></span><br></p>
-<p class="p11"><span class="s9">將滑鼠移至任一序列可反白顯示。所有指數以 2012Q3 = 1.00 為基準。</span></p>
-<p class="p6"><span class="s9">最新指數值 — 2025Q4</span></p>
-<p class="p10"><span class="s9"></span><br></p>
-<p class="p6"><span class="s9">臺灣住宅價格指數  |  資料來源：內政部實價登錄  |  方法論：CL 重複交易指數</span></p>
+
+<nav>
+  <div class="nav-inner">
+    <a class="nav-brand" href="index.html">🏠 Taiwan HPI</a>
+    <ul class="nav-links">
+      <li><a href="index.html"       class="active" data-i18n="nav.timeseries">時間序列</a></li>
+      <li><a href="map.html"         data-i18n="nav.gismap">地圖</a></li>
+      <li><a href="comparison.html"  data-i18n="nav.comparison">指數比較</a></li>
+      <li><a href="methodology.html" data-i18n="nav.methodology">研究方法</a></li>
+    </ul>
+    <button id="lang-toggle" class="lang-btn"
+            onclick="setLang(document.documentElement.lang==='zh'?'en':'zh')">EN</button>
+    <button class="nav-toggle" aria-label="Menu" onclick="this.closest('nav').querySelector('.nav-links').classList.toggle('open')">☰</button>
+  </div>
+</nav>
+
+<div class="hero">
+  <div class="hero-content">
+    <h1 data-i18n="index.hero.title">臺灣住宅價格指數</h1>
+    <p  data-i18n="index.hero.desc">以重複交易法建構臺灣15個行政區之季度與年度住宅價格指數，2000Q1–2025Q4。資料來源：內政部不動產交易實價登錄。</p>
+  </div>
+</div>
+
+<div class="stat-strip">
+  <div class="stat-item">
+    <span class="stat-num">15</span>
+    <span class="stat-label lang-zh">行政區</span>
+    <span class="stat-label lang-en">Regions</span>
+  </div>
+  <div class="stat-item">
+    <span class="stat-num">25+</span>
+    <span class="stat-label lang-zh">年資料</span>
+    <span class="stat-label lang-en">Years of Data</span>
+  </div>
+  <div class="stat-item">
+    <span class="stat-num">10M+</span>
+    <span class="stat-label lang-zh">交易筆數</span>
+    <span class="stat-label lang-en">Transactions</span>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- Citation note -->
+  <div class="note-box" style="background:#eaf4fb;border-color:#a8d5f2;border-left-color:#2980b9;color:#1a3a5c;">
+    <span class="lang-zh">本 CL 指數由 <strong>紀鈞哲</strong>（中央研究院經濟研究所）與 <strong>Cameron LaPoint</strong>（耶魯大學管理學院）建構。若使用本資料集，請引用：Chi, Chun-Che, Cameron LaPoint, and Ming-Jen Lin. <em>"Flip or Flop? Tobin Taxes in the Real Estate Market."</em></span>
+    <span class="lang-en">The CL index is constructed by <strong>Chun-Che Chi</strong> (Academia Sinica, Institute of Economics) and <strong>Cameron LaPoint</strong> (Yale University, School of Management). For publication use, please cite: Chi, Chun-Che, Cameron LaPoint, and Ming-Jen Lin. <em>"Flip or Flop? Tobin Taxes in the Real Estate Market."</em></span>
+  </div>
+
+  <!-- Download -->
+  <div class="download-bar">
+    <span data-i18n="index.dl.label">📥 下載資料：</span>
+    <a class="btn btn-success btn-sm" href="data/cll_quarterly_index.csv" download
+       data-i18n="index.dl.q_csv">季指數 (CSV)</a>
+    <a class="btn btn-success btn-sm" href="data/cll_annual_index.csv" download
+       data-i18n="index.dl.a_csv">年指數 (CSV)</a>
+    <a class="btn btn-outline  btn-sm" href="data/quarterly_cll.json" download
+       data-i18n="index.dl.q_json">季指數 (JSON)</a>
+    <a class="btn btn-outline  btn-sm" href="data/annual_cll.json" download
+       data-i18n="index.dl.a_json">年指數 (JSON)</a>
+  </div>
+
+  <!-- Chart card -->
+  <div class="card">
+    <div class="card-title">
+      <span data-i18n="index.chart.title">城市住宅價格指數</span>
+      <span class="badge" data-i18n="index.chart.badge">更新至 2025Q4</span>
+    </div>
+
+    <div class="controls">
+      <div class="freq-btns">
+        <button id="btn-q" class="btn btn-sm active" onclick="switchFreq('q')"
+                data-i18n="index.freq.q">季</button>
+        <button id="btn-a" class="btn btn-sm"        onclick="switchFreq('a')"
+                data-i18n="index.freq.a">年</button>
+      </div>
+      <div class="city-grid" id="city-chips"></div>
+      <div style="display:flex;gap:.4rem;flex-wrap:wrap;margin-top:.3rem">
+        <button class="btn btn-outline btn-sm" onclick="selectAllCities()"
+                data-i18n="index.btn.all">全選</button>
+        <button class="btn btn-outline btn-sm" onclick="clearAllCities()"
+                data-i18n="index.btn.clear">清除</button>
+      </div>
+    </div>
+
+    <p style="font-size:.75rem;color:var(--muted);margin:.4rem 0 .6rem"
+       data-i18n="index.freq.note">基期 = 2012Q3 &nbsp;|&nbsp; 點擊圖例切換城市</p>
+
+    <div class="chart-wrap chart-wrap-lg">
+      <canvas id="mainChart"></canvas>
+    </div>
+
+    <p style="font-size:.77rem;color:var(--muted);margin-top:.75rem"
+       data-i18n="index.chart.note">
+      將滑鼠移至任一序列可反白顯示。所有指數以 2012Q3 = 1.00 為基準。數值代表相對於基期的價格水準。
+    </p>
+  </div>
+
+  <!-- Latest stats table -->
+  <div class="card">
+    <div class="card-title" data-i18n="index.latest.title">最新指數值 — 2025Q4</div>
+    <div style="overflow-x:auto">
+      <table id="stats-table" style="width:100%;border-collapse:collapse;font-size:.88rem">
+        <thead>
+          <tr style="background:#f0f4f8;color:var(--primary)">
+            <th class="sortable" data-col="label"  onclick="sortTable('label')"
+                style="text-align:left;padding:.55rem .8rem;cursor:pointer"
+                data-i18n="index.tbl.region">地區</th>
+            <th class="sortable" data-col="val"    onclick="sortTable('val')"
+                style="text-align:right;padding:.55rem .8rem;cursor:pointer"
+                data-i18n="index.tbl.index">指數 (2025Q4)</th>
+            <th class="sortable" data-col="qoq"    onclick="sortTable('qoq')"
+                style="text-align:right;padding:.55rem .8rem;cursor:pointer"
+                data-i18n="index.tbl.qoq">季增率</th>
+            <th class="sortable" data-col="yoy"    onclick="sortTable('yoy')"
+                style="text-align:right;padding:.55rem .8rem;cursor:pointer"
+                data-i18n="index.tbl.yoy">年增率</th>
+          </tr>
+        </thead>
+        <tbody id="stats-body"></tbody>
+      </table>
+    </div>
+    <p style="font-size:.75rem;color:var(--muted);margin-top:.5rem"
+       data-i18n="index.tbl.note">
+      基期：2012Q3 = 1.00。季增率 = 季對季；年增率 = 年對年（4季）。
+    </p>
+  </div>
+
+</div>
+
+<footer data-i18n="index.footer">
+  臺灣住宅價格指數 &nbsp;|&nbsp; 資料來源：內政部實價登錄 &nbsp;|&nbsp; 方法論：CL 重複交易指數
+</footer>
+
+<script>
+let qData, aData, statsData;
+let freq = 'q';
+let activeCities = new Set();
+let mainChart;
+let sortCol = 'val', sortAsc = false;
+
+// ── Fetch all data ──────────────────────────────────────────────────
+Promise.all([
+  fetch('data/quarterly_cll.json').then(r => r.json()),
+  fetch('data/annual_cll.json').then(r => r.json()),
+  fetch('data/latest_stats.json').then(r => r.json()),
+]).then(([q, a, s]) => {
+  qData = q; aData = a; statsData = s;
+  activeCities = new Set(Object.keys(qData.cities));
+  buildCityChips();
+  buildChart();
+  buildStatsTable();
+});
+
+// ── Frequency toggle ────────────────────────────────────────────────
+function switchFreq(f) {
+  freq = f;
+  document.getElementById('btn-q').classList.toggle('active', f === 'q');
+  document.getElementById('btn-a').classList.toggle('active', f === 'a');
+  rebuildChart();
+}
+
+// ── City chips ──────────────────────────────────────────────────────
+function buildCityChips() {
+  const container = document.getElementById('city-chips');
+  container.innerHTML = '';
+  const cities = qData.cities;
+  Object.entries(cities).forEach(([key, meta]) => {
+    const label = getCityLabel(key, meta.label);
+    const chip = document.createElement('div');
+    const active = activeCities.has(key);
+    chip.className = 'city-chip ' + (active ? 'active' : 'inactive');
+    chip.style.color = meta.color;
+    chip.style.background = active ? meta.color + '18' : '#f4f6f9';
+    chip.innerHTML = `<span class="swatch" style="background:${meta.color}"></span>${label}`;
+    chip.onclick = () => { toggleCity(key); };
+    container.appendChild(chip);
+  });
+}
+
+function toggleCity(key) {
+  if (activeCities.has(key)) activeCities.delete(key);
+  else activeCities.add(key);
+  buildCityChips();
+  rebuildChart();
+}
+
+function selectAllCities() {
+  activeCities = new Set(Object.keys(qData.cities));
+  buildCityChips();
+  rebuildChart();
+}
+
+function clearAllCities() {
+  activeCities.clear();
+  buildCityChips();
+  rebuildChart();
+}
+
+// ── Chart ───────────────────────────────────────────────────────────
+function currentData() { return freq === 'q' ? qData : aData; }
+function currentLabels() {
+  const d = currentData();
+  return freq === 'q' ? d.quarters : d.years.map(String);
+}
+
+function buildDatasets() {
+  const d = currentData();
+  return Object.entries(d.cities)
+    .filter(([k]) => activeCities.has(k))
+    .map(([k, meta]) => ({
+      label:           getCityLabel(k, meta.label),
+      data:            meta.data,
+      borderColor:     meta.color,
+      backgroundColor: meta.color + '15',
+      borderWidth:     k === 'all' ? 2.5 : 1.5,
+      pointRadius:     0,
+      pointHoverRadius:5,
+      tension:         0.3,
+      fill:            false,
+    }));
+}
+
+function buildChart() {
+  const ctx = document.getElementById('mainChart').getContext('2d');
+  mainChart = new Chart(ctx, {
+    type: 'line',
+    data: { labels: currentLabels(), datasets: buildDatasets() },
+    options: chartOptions(),
+  });
+
+  // Hover highlight
+  document.getElementById('mainChart').addEventListener('mousemove', evt => {
+    if (!mainChart) return;
+    const pts = mainChart.getElementsAtEventForMode(evt, 'nearest', { intersect: false }, false);
+    const dsIdx = pts.length ? pts[0].datasetIndex : -1;
+    mainChart.data.datasets.forEach((ds, i) => {
+      ds.borderWidth = (i === dsIdx) ? 3 : (activeCities.has(Object.keys(currentData().cities)[i]) ? 1.5 : 1.5);
+      ds.borderColor = (dsIdx >= 0 && i !== dsIdx)
+        ? ds.borderColor.replace(/^(#[0-9a-fA-F]{6}).*/, '$1') + '44'
+        : ds.borderColor.replace(/44$/, '');
+    });
+  });
+}
+
+function chartOptions() {
+  return {
+    responsive: true,
+    maintainAspectRatio: false,
+    interaction: { mode: 'index', intersect: false },
+    plugins: {
+      legend: { display: false },
+      tooltip: {
+        callbacks: {
+          label: ctx => ` ${ctx.dataset.label}: ${ctx.parsed.y != null ? ctx.parsed.y.toFixed(3) : 'N/A'}`,
+        },
+        backgroundColor: 'rgba(20,30,50,.9)',
+        titleFont: { size: 12 },
+        bodyFont:  { size: 11 },
+      },
+    },
+    scales: {
+      x: {
+        grid: { color: '#e8edf3' },
+        ticks: { maxTicksLimit: 12, maxRotation: 0, font: { size: 11 } },
+      },
+      y: {
+        grid: { color: '#e8edf3' },
+        title: { display: true, text: t('index.chart.yaxis'), font: { size: 12 } },
+        ticks: { font: { size: 11 }, callback: v => v.toFixed(2) },
+      },
+    },
+  };
+}
+
+function rebuildChart() {
+  if (!mainChart) { buildChart(); return; }
+  mainChart.data.labels   = currentLabels();
+  mainChart.data.datasets = buildDatasets();
+  mainChart.options       = chartOptions();
+  mainChart.update();
+}
+
+// ── Latest stats table ──────────────────────────────────────────────
+let tableRows = [];
+
+function buildStatsTable() {
+  tableRows = Object.entries(statsData).map(([key, s]) => ({
+    key,
+    label:  getCityLabel(key, s.label),
+    val:    s.latest_val,
+    qoq:    s.qoq_growth,
+    yoy:    s.yoy_growth,
+  }));
+  renderTable();
+}
+
+function sortTable(col) {
+  if (sortCol === col) sortAsc = !sortAsc;
+  else { sortCol = col; sortAsc = col === 'label'; }
+  // Update header arrows
+  document.querySelectorAll('#stats-table th.sortable').forEach(th => {
+    const c = th.getAttribute('data-col');
+    const base = th.getAttribute('data-i18n') ? t(th.getAttribute('data-i18n')) : th.textContent.replace(/ [▲▼]$/, '');
+    th.innerHTML = base + (c === sortCol ? (sortAsc ? ' ▲' : ' ▼') : '');
+    th.setAttribute('data-i18n', th.getAttribute('data-i18n') || '');
+  });
+  renderTable();
+}
+
+function renderTable() {
+  const sorted = [...tableRows].sort((a, b) => {
+    const av = a[sortCol], bv = b[sortCol];
+    if (av == null && bv == null) return 0;
+    if (av == null) return 1;
+    if (bv == null) return -1;
+    if (typeof av === 'string') return sortAsc ? av.localeCompare(bv) : bv.localeCompare(av);
+    return sortAsc ? av - bv : bv - av;
+  });
+
+  const tbody = document.getElementById('stats-body');
+  tbody.innerHTML = sorted.map((r, i) => {
+    const bg = i % 2 === 0 ? '' : 'background:#f8fafc';
+    const qColor = r.qoq == null ? '' : r.qoq >= 0 ? 'color:#27ae60' : 'color:#e74c3c';
+    const yColor = r.yoy == null ? '' : r.yoy >= 0 ? 'color:#27ae60' : 'color:#e74c3c';
+    const qStr   = r.qoq == null ? 'N/A' : (r.qoq >= 0 ? '+' : '') + r.qoq.toFixed(2) + '%';
+    const yStr   = r.yoy == null ? 'N/A' : (r.yoy >= 0 ? '+' : '') + r.yoy.toFixed(2) + '%';
+    return `<tr style="${bg}">
+      <td style="padding:.45rem .8rem;font-weight:500">${getCityLabel(r.key, r.label)}</td>
+      <td style="text-align:right;padding:.45rem .8rem;font-weight:600">${r.val.toFixed(3)}</td>
+      <td style="text-align:right;padding:.45rem .8rem;${qColor};font-weight:600">${qStr}</td>
+      <td style="text-align:right;padding:.45rem .8rem;${yColor};font-weight:600">${yStr}</td>
+    </tr>`;
+  }).join('');
+}
+
+// ── Language change handler ─────────────────────────────────────────
+function onLangChange(lang) {
+  if (!qData) return;
+  buildCityChips();
+  rebuildChart();
+  if (statsData) {
+    tableRows.forEach(r => { r.label = getCityLabel(r.key, statsData[r.key]?.label || r.label); });
+    renderTable();
+  }
+}
+
+initLang();
+</script>
 </body>
 </html>
