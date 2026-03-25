@@ -88,8 +88,8 @@ const TRANSLATIONS = {
 
     /* ── methodology.html ────────────────────────────────────────── */
     'meth.hero.title':    '研究方法',
-    'meth.hero.desc':     'CL 重複交易住宅價格指數的建構方式，以及其相較現有臺灣價格指數的優勢。',
-    'meth.adv.title':     'CL 指數之主要優勢',
+    'meth.hero.desc':     'CL 重複交易住宅價格指數的建構方式，以及其與現有臺灣價格指數之差異。',
+    'meth.adv.title':     'CL 指數之主要特點',
     'meth.src.title':     '資料來源',
     'meth.rs.title':      '重複交易迴歸',
     'meth.methods.title': '四種房屋配對方法',
