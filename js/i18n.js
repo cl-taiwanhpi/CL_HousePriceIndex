@@ -108,7 +108,7 @@ const TRANSLATIONS = {
 
     /* ── Nav ─────────────────────────────────────────────────────── */
     'nav.timeseries':  'Time Series',
-    'nav.gismap':      'GIS Map',
+    'nav.gismap':      'Map',
     'nav.comparison':  'Index Comparison',
     'nav.methodology': 'Methodology',
 
@@ -155,7 +155,7 @@ const TRANSLATIONS = {
     'comp.base':          'Base',
 
     /* ── map.html ────────────────────────────────────────────────── */
-    'map.hero.title':     'GIS Map — Regional Housing Prices',
+    'map.hero.title':     'Map — Regional Housing Prices',
     'map.hero.desc':      'Hover or click on any region to see the latest housing price index and growth rates.',
     'map.note':           '💡 Regions shown in <strong>blue gradient</strong> have CL index data. Gray regions (Miaoli, Nantou, Changhua, Yilan) are not covered separately in this index. Hsinchu City+County and Chiayi City+County are each consolidated into one region.',
     'map.panel.hover':    'Hover over a region',
