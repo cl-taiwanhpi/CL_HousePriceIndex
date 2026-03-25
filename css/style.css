@@ -450,7 +450,88 @@ nav {
 @media (max-width: 900px) {
   .hero-stats { gap: 0; }
   .hero-stat  { min-width: 90px; padding: .75rem .9rem; }
+  .advantage-grid { grid-template-columns: 1fr 1fr; }
 }
+
+/* ── Mobile nav toggle ───────────────────────────────────────────── */
+.nav-toggle {
+  display: none;
+  background: transparent;
+  border: 1.5px solid rgba(255,255,255,.3);
+  border-radius: 6px;
+  padding: .3rem .55rem;
+  cursor: pointer;
+  color: #fff;
+  font-size: 1.1rem;
+  line-height: 1;
+  margin-left: auto;
+  flex-shrink: 0;
+}
+
+@media (max-width: 680px) {
+  /* Nav */
+  .nav-toggle { display: flex; align-items: center; }
+  .lang-btn   { display: none; }
+  .nav-inner  { flex-wrap: wrap; gap: .5rem; padding: .5rem 0; height: auto; min-height: 52px; }
+  .nav-links  {
+    display: none;
+    width: 100%;
+    flex-direction: column;
+    gap: 0;
+    padding: .35rem 0 .5rem;
+    border-top: 1px solid rgba(255,255,255,.1);
+  }
+  .nav-links.open { display: flex; }
+  .nav-links a    { font-size: .9rem; padding: .55rem .75rem; border-radius: 4px; }
+  /* Show a language toggle inside the open menu */
+  .nav-lang-inline { display: block !important; }
+
+  /* Hero */
+  .hero        { padding: 2rem 1rem 1.8rem; }
+  .hero h1     { font-size: 1.5rem; }
+  .hero p      { font-size: .9rem; }
+  .hero-stats  { flex-wrap: wrap; }
+  .hero-stat   { min-width: 80px; padding: .6rem .75rem; }
+  .hero-stat-num { font-size: 1.4rem; }
+
+  /* Layout */
+  .container  { padding: .9rem; }
+  .card       { padding: 1.1rem; }
+
+  /* Charts */
+  .chart-wrap    { height: 260px; }
+  .chart-wrap-lg { height: 300px; }
+  #map           { height: 300px; }
+
+  /* Tables */
+  .stats-table { font-size: .78rem; }
+  .stats-table th, .stats-table td { padding: .45rem .5rem; }
+  #latest-table, #corr-table { overflow-x: auto; }
+
+  /* Controls */
+  .controls    { gap: .35rem; }
+  .freq-toggle button { padding: .3rem .7rem; font-size: .8rem; }
+  .download-bar { flex-wrap: wrap; gap: .4rem; }
+
+  /* Stat grid in map panel */
+  .stat-grid   { grid-template-columns: 1fr 1fr; }
+
+  /* Map layout */
+  .map-layout  { grid-template-columns: 1fr !important; }
+
+  /* Advantages */
+  .advantage-grid { grid-template-columns: 1fr; }
+
+  /* Method step grid */
+  .step-grid   { grid-template-columns: 1fr; }
+
+  /* Index cards */
+  .index-cards { grid-template-columns: 1fr; }
+
+  /* Math blocks */
+  .math-block  { font-size: .8rem; padding: .7rem 1rem; overflow-x: auto; }
+}
+
 @media (max-width: 768px) {
   .container  { padding: 1rem; }
   .hero       { padding: 2.5rem 1.25rem 2rem; }

@@ -6,6 +6,10 @@
   <title data-i18n="page.title.methodology">研究方法 – 臺灣住宅價格指數</title>
   <link rel="stylesheet" href="css/style.css">
   <script src="js/i18n.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
+          onload="renderMathInElement(document.body,{delimiters:[{left:'\\(',right:'\\)',display:false},{left:'\\[',right:'\\]',display:true}]})"></script>
   <style>
     .math-block {
       background: #f8f9fa;
@@ -70,6 +74,7 @@
     </ul>
     <button id="lang-toggle" class="lang-btn"
             onclick="setLang(document.documentElement.lang==='zh'?'en':'zh')">EN</button>
+    <button class="nav-toggle" aria-label="Menu" onclick="this.closest('nav').querySelector('.nav-links').classList.toggle('open')">☰</button>
   </div>
 </nav>
 
@@ -88,51 +93,27 @@
     <div class="advantage-grid">
 
       <div class="advantage-card">
-        <h4>📍 <span class="lang-zh">更廣泛的地理涵蓋範圍</span><span class="lang-en">Broader Geographic Coverage</span></h4>
-        <p class="lang-zh">產製臺灣14個地區的城市級指數，包括其他多數指數未涵蓋的小型城市（基隆、嘉義、雲林、屏東、花蓮、臺東）。</p>
-        <p class="lang-en">Produces separate city-level indices for 14 regions of Taiwan, including smaller cities and counties (Keelung, Chiayi, Yunlin, Pingtung, Hualien, Taitung) that are absent from most competing indices.</p>
+        <h4>📈 <span class="lang-zh">納入短期轉售交易</span><span class="lang-en">Inclusion of Short-Term Sales</span></h4>
+        <p class="lang-zh">臺灣多數現有價格指數排除持有期間未滿六個月的交易。本研究特別針對不動產「翻轉」行為，因此建構了納入此類短期交易的指數。此一做法使研究得以記錄政策改革後一季內全台房價下跌7%的現象——這是其他指數無法呈現的。</p>
+        <p class="lang-en">Most publicly available price indices in Taiwan exclude sales with holding periods of less than six months. Because this study specifically targets property "flips," the index includes these short-term transactions. This allowed the authors to document a 7% decline in aggregate housing price levels within a quarter of the reform — a dip that other indices failed to show.</p>
       </div>
 
       <div class="advantage-card">
-        <h4>📋 <span class="lang-zh">逐筆交易的實價登錄資料</span><span class="lang-en">Transaction-Level APR Data</span></h4>
-        <p class="lang-zh">使用內政部強制申報的實價登錄（APR）資料庫，所有公平交易均須申報。這消除了以仲介為基礎的指數（信義、國泰）中的選擇性偏誤，此類指數僅涵蓋上架物件。</p>
-        <p class="lang-en">Uses the Ministry of Interior's mandatory Actual Price Registration (APR) database — every arm's-length transaction must be reported. This eliminates the selection bias present in broker-based indices (Sinyi, Cathay), which only capture listed properties.</p>
+        <h4>📋 <span class="lang-zh">全面的資料涵蓋範圍</span><span class="lang-en">Comprehensive Data Coverage</span></h4>
+        <p class="lang-zh">此指數反映臺灣幾乎所有不動產銷售交易。研究者透過手動收集並整合2012Q3前109個地方地政事務所的交易記錄，並與機密不動產及契稅資料合併，相較其他候選指數提供了改革前最長的時間序列涵蓋範圍。</p>
+        <p class="lang-en">The index reflects the near universe of sales in Taiwan. The authors achieved this by manually collecting and appending transaction records from 109 local land offices prior to 2012Q3, merging them with confidential property and deeds tax data. This provides the longest time period coverage for the pre-reform era compared to other candidates.</p>
       </div>
 
       <div class="advantage-card">
-        <h4>🔁 <span class="lang-zh">重複交易控制品質差異</span><span class="lang-en">Repeat-Sales Controls for Quality</span></h4>
-        <p class="lang-zh">透過追蹤同一不動產的多次交易，指數自動控制不動產間未觀察的品質差異，避免簡單中位數/平均價格指標的組成偏誤。</p>
-        <p class="lang-en">By tracking the same property over multiple sales, the index automatically controls for unobserved quality differences across properties. This avoids the composition bias in simple median/average price measures.</p>
+        <h4>🔁 <span class="lang-zh">降低選擇性偏誤</span><span class="lang-en">Reduced Selection Bias</span></h4>
+        <p class="lang-zh">與標準重複交易指數不同，後者在價格成長方面可能存在正向選擇偏誤，本研究採用基於 McMillen (2012) 的配對估計法。此混合方式依據精確地理位置與房屋特徵進行交易配對，在最大化樣本涵蓋率與估計精度的同時識別獨特不動產。</p>
+        <p class="lang-en">Unlike standard repeat sales indices, which can suffer from positive selection bias regarding price growth, the authors used a matching estimator approach based on McMillen (2012). This hybrid approach matches transactions on precise geolocation and unit characteristics, allowing the authors to identify unique properties while maximizing sample coverage and precision.</p>
       </div>
 
       <div class="advantage-card">
-        <h4>🔬 <span class="lang-zh">四種獨立的辨識方法</span><span class="lang-en">Four Independent Identification Methods</span></h4>
-        <p class="lang-zh">以四種嚴格程度遞增的策略配對房屋——從地址區塊配對到精確 GPS 加面積配對——提供其他指數所沒有的穩健性檢驗。</p>
-        <p class="lang-en">Properties are matched using four strategies of increasing stringency — from address-block matching to exact GPS + area matching — yielding a robustness check unavailable in other indices.</p>
-      </div>
-
-      <div class="advantage-card">
-        <h4>📅 <span class="lang-zh">更長的時間序列（自2000年起）</span><span class="lang-en">Longer Time Series (from 2000)</span></h4>
-        <p class="lang-zh">透過將2012年前地方地政事務所收集的資料與2012年後的實價登錄資料接合，指數延伸回2000Q1，涵蓋兩個完整房地產景氣循環。</p>
-        <p class="lang-en">By splicing pre-2012 data collected from local land offices with post-2012 APR data, the index extends back to 2000Q1, providing two full real estate cycles for analysis.</p>
-      </div>
-
-      <div class="advantage-card">
-        <h4>🏢 <span class="lang-zh">房屋類型分層</span><span class="lang-en">Property-Type Stratification</span></h4>
-        <p class="lang-zh">依房屋類型分別建構指數：住宅非出租（RN）、住宅出租（RR）及商業/工業（CI）。多數競爭指數僅涵蓋一般住宅。</p>
-        <p class="lang-en">Separate indices by property type: Residential-Non-rental (RN), Residential-Rental (RR), and Commercial/Industrial (CI). Most competing indices cover only general residential properties.</p>
-      </div>
-
-      <div class="advantage-card">
-        <h4>🔒 <span class="lang-zh">公平交易篩選</span><span class="lang-en">Arm's-Length Filter</span></h4>
-        <p class="lang-zh">系統性排除政府徵收、關係人/家庭交易（從備註欄位辨識），以及含有未登記附加物件而虛增名目價格的不動產。</p>
-        <p class="lang-en">Systematically excludes government acquisitions, insider/family transactions (identified from the remarks field), and properties with unregistered add-ons that inflate nominal prices.</p>
-      </div>
-
-      <div class="advantage-card">
-        <h4>🏗️ <span class="lang-zh">排除新建物</span><span class="lang-en">Excludes New Buildings</span></h4>
-        <p class="lang-zh">排除首次出售的物件（屋齡 = 1年），與信義的方法一致，確保新建物溢價效應不會造成指數偏誤。</p>
-        <p class="lang-en">Properties sold for the first time (age = 1 year) are excluded, consistent with the Sinyi methodology and ensuring that "new-build premium" effects do not bias the index.</p>
+        <h4>🔬 <span class="lang-zh">高度細緻的品質調整</span><span class="lang-en">High Granularity</span></h4>
+        <p class="lang-zh">本研究方法可建構品質調整後的價格水準，涵蓋特定不動產特徵，如建物面積、屋齡及距捷運站距離，並以此進行嚴格的趨勢前檢定。</p>
+        <p class="lang-en">The methodology allows for the creation of quality-adjusted price levels that account for specific property amenities like floor space, building age, and distance to transit, which are then used to conduct rigorous pre-trend tests.</p>
       </div>
 
     </div>
@@ -151,8 +132,6 @@
 
       <h3><span class="lang-zh">變數建構</span><span class="lang-en">Variable Construction</span></h3>
       <ul>
-        <li class="lang-zh">交易日期從民國曆換算為西曆（加1911年）</li>
-        <li class="lang-en">Transaction dates converted from ROC calendar to Gregorian (add 1911)</li>
         <li class="lang-zh">建材標準化為6類（鋼骨、鋼筋混凝土、磚造、木造等）</li>
         <li class="lang-en">Building materials standardized into 6 categories (steel, reinforced concrete, brick, wood, etc.)</li>
         <li class="lang-zh">屋齡計算方式：交易年份減去建築完工年份</li>
@@ -170,33 +149,29 @@
     <div class="method-section">
       <h2 data-i18n="meth.rs.title">重複交易迴歸</h2>
 
-      <p class="lang-zh">此指數採用混合重複銷售/特徵評估法，精神源自 McMillen (2012) 及 Fang et al. (2015)，透過轉換以下迴歸中的時間固定效果來估計交易價格指數（方程式 D.1，引自 Chi、LaPoint 和 Lin）：</p>
-      <p class="lang-en">The index adopts a hybrid repeat-sales/hedonic approach in the spirit of McMillen (2012) and Fang et al. (2015) that transforms the time fixed effects in the following regression to estimate a transaction price index (Equation D.1 from Chi, LaPoint, and Lin):</p>
+      <p class="lang-zh">此指數採用混合重複銷售/特徵評估法，精神源自 McMillen (2012) 及 Fang et al. (2015)，透過轉換以下迴歸中的時間固定效果來估計交易價格指數（引自 Chi、LaPoint 和 Lin）：</p>
+      <p class="lang-en">The index adopts a hybrid repeat-sales/hedonic approach in the spirit of McMillen (2012) and Fang et al. (2015) that transforms the time fixed effects in the following regression to estimate a transaction price index (Chi, LaPoint, and Lin):</p>
 
-      <div class="math-block">
-        log P<sup>c</sup><sub>i,t</sub> = δ<sup>c</sup><sub>t</sub> + γ<sup>c</sup><sub>ĩ</sub> + β<sup>c</sup>′ · X<sub>i,t</sub> + ε<sup>c</sup><sub>i,t</sub> &nbsp;&nbsp;&nbsp; (D.1)
-      </div>
-      <div class="math-block">
-        P<sup>c</sup><sub>t</sub> = exp(δ<sup>c</sup><sub>t</sub>) &nbsp;&nbsp;&nbsp; (D.2)
+      <div class="math-block" style="font-family:inherit;padding:1rem 1.4rem">
+        \[ \log P^c_{i,t} = \delta^c_t + \gamma^c_{\tilde{i}} + \beta^{c\prime} X_{i,t} + \varepsilon^c_{i,t} \]
       </div>
 
       <p class="lang-zh">其中：</p>
-      <p class="lang-en">Where:</p>
+      <p class="lang-en">where:</p>
       <ul>
-        <li class="lang-zh"><strong>i</strong>：不動產（個體）；<strong>t</strong>：季度；<strong>c</strong>：地區與不動產使用類別之組合（例：臺北市住宅）。</li>
-        <li class="lang-en"><strong>i</strong> indexes a property; <strong>t</strong> denotes a quarter; <strong>c</strong> refers to a classification by regional market × property use category (e.g., Taipei residential).</li>
-        <li class="lang-zh"><strong>δ<sup>c</sup><sub>t</sub></strong>：時間固定效果——此即欲估計的指數值。</li>
-        <li class="lang-en"><strong>δ<sup>c</sup><sub>t</sub></strong>: time fixed effects — these are the estimated index values.</li>
-        <li class="lang-zh"><strong>γ<sup>c</sup><sub>ĩ</sub></strong>：不動產類型固定效果，控制所有時間不變之觀察或未觀察特徵。對於<strong>方法一</strong>，此為地址區塊級固定效果：若兩筆交易共享相同地址字串，則指派相同的面板識別碼（涵蓋約 85% 的交易）。</li>
-        <li class="lang-en"><strong>γ<sup>c</sup><sub>ĩ</sub></strong>: property type fixed effects, controlling for all time-invariant observed or unobserved characteristics of the property. For <strong>Method 1</strong>, these are block-level fixed effects: two transactions are assigned the same panel id if they share the same address string (covering ~85% of transactions).</li>
-        <li class="lang-zh"><strong>X<sub>i,t</sub></strong>：潛在隨時間變化的特徵控制向量，包含：土地面積與建物面積的多項式、建物總樓層數，以及所在樓層（公寓及辦公用途適用）。</li>
-        <li class="lang-en"><strong>X<sub>i,t</sub></strong>: a vector of potentially time-varying hedonic controls including a polynomial in land area and floor space, the number of floors in the building, and the unit floor (for apartments and office space).</li>
-        <li class="lang-zh"><strong>ε<sup>c</sup><sub>i,t</sub></strong>：誤差項。</li>
-        <li class="lang-en"><strong>ε<sup>c</sup><sub>i,t</sub></strong>: the error term.</li>
+        <li class="lang-zh">\(P^c_t = \exp(\delta^c_t)\) 為市場 \(c\) 在時間 \(t\) 的季度價格指數。</li>
+        <li class="lang-en">\(P^c_t = \exp(\delta^c_t)\) is the quarterly price index for market \(c\) at time \(t\).</li>
+        <li class="lang-zh">\(i\) 代表不動產個體；\(t\) 代表季度；\(c\) 為地區與不動產使用類別之組合（例：臺北市住宅）。</li>
+        <li class="lang-en">\(i\) indexes a property; \(t\) denotes a quarter; \(c\) refers to a classification by regional market × property use category (e.g., Taipei residential).</li>
+        <li class="lang-zh">\(\delta^c_t\)：時間固定效果——此即欲估計的指數值。</li>
+        <li class="lang-en">\(\delta^c_t\): time fixed effects — these are the estimated index values.</li>
+        <li class="lang-zh">\(\gamma^c_{\tilde{i}}\)：不動產類型固定效果，控制所有時間不變之觀察或未觀察特徵。對於<strong>方法一</strong>，此為地址區塊級固定效果：若兩筆交易共享相同地址字串，則指派相同的面板識別碼（涵蓋約 85% 的交易）。</li>
+        <li class="lang-en">\(\gamma^c_{\tilde{i}}\): property type fixed effects, controlling for all time-invariant observed or unobserved characteristics of the property. For <strong>Method 1</strong>, these are block-level fixed effects: two transactions are assigned the same panel id if they share the same address string (~85% of transactions).</li>
+        <li class="lang-zh">\(X_{i,t}\)：潛在隨時間變化的特徵控制向量，包含土地面積與建物面積的多項式、建物總樓層數，以及所在樓層（公寓及辦公用途適用）。</li>
+        <li class="lang-en">\(X_{i,t}\): a vector of potentially time-varying hedonic controls including a polynomial in land area and floor space, the number of floors in the building, and the unit floor (for apartments and office space).</li>
+        <li class="lang-zh">\(\varepsilon^c_{i,t}\)：誤差項。</li>
+        <li class="lang-en">\(\varepsilon^c_{i,t}\): the error term.</li>
       </ul>
-
-      <p class="lang-zh">迴歸以 <strong>reghdfe</strong>（Correia 2017）估計，在時間固定效果（δ<sup>c</sup><sub>t</sub>）與不動產固定效果（γ<sup>c</sup><sub>ĩ</sub>）的雙向設計下吸收高維度固定效果。透過 exp(δ̂<sup>c</sup><sub>t</sub>) 即可得到季度價格指數。</p>
-      <p class="lang-en">The regression is estimated using <strong>reghdfe</strong> (Correia 2017), which absorbs high-dimensional fixed effects in the two-way design of time fixed effects (δ<sup>c</sup><sub>t</sub>) and property fixed effects (γ<sup>c</sup><sub>ĩ</sub>). The quarterly price index is recovered as exp(δ̂<sup>c</sup><sub>t</sub>).</p>
 
       <h3><span class="lang-zh">基期標準化</span><span class="lang-en">Base Period Normalization</span></h3>
       <p class="lang-zh">所有指數以 <strong>2012Q3 = 1.00</strong> 為基準，與強制實價登錄資料起始時間一致，並與其他臺灣指數相容以便比較。完整歷史走勢圖中，所有序列進一步重新標準化為 2001Q1 = 1.00。</p>
@@ -223,8 +198,8 @@
             <span class="lang-zh">地址區塊級配對</span>
             <span class="lang-en">Block-Level Address Matching</span>
           </h4>
-          <p class="lang-zh">以標準化地址區塊（移除單元/樓層識別符）分組不動產。最寬鬆的方法。約配對 <strong>109,000</strong> 筆獨特不動產，產生 <strong>628,000</strong> 筆交易。</p>
-          <p class="lang-en">Properties are grouped by standardized block-level address (removing unit/floor identifiers). Most permissive method. Approximately <strong>109,000</strong> unique properties matched, yielding <strong>628,000</strong> transactions.</p>
+          <p class="lang-zh">以標準化地址區塊（移除單元/樓層識別符）分組不動產。最寬鬆的方法，涵蓋約 <strong>85%</strong> 的交易。</p>
+          <p class="lang-en">Properties are grouped by standardized block-level address (removing unit/floor identifiers). Most permissive method, covering ~<strong>85%</strong> of transactions.</p>
         </div>
         <div class="step-card">
           <div class="step-num">M2</div>
@@ -232,8 +207,8 @@
             <span class="lang-zh">GPS 座標配對</span>
             <span class="lang-en">GPS Coordinate Matching</span>
           </h4>
-          <p class="lang-zh">以內政部登記的經緯度座標精確配對不動產。約 <strong>51,500</strong> 筆獨特不動產及 <strong>130,000</strong> 筆交易。需有 GPS 資料。</p>
-          <p class="lang-en">Properties matched exactly on latitude/longitude coordinates registered with the MOI. Approximately <strong>51,500</strong> unique properties and <strong>130,000</strong> transactions. Requires GPS data to be available.</p>
+          <p class="lang-zh">以內政部登記的經緯度座標精確配對不動產。需有 GPS 資料，涵蓋約 <strong>18%</strong> 的交易。</p>
+          <p class="lang-en">Properties matched exactly on latitude/longitude coordinates registered with the MOI. Requires GPS data; covers ~<strong>18%</strong> of transactions.</p>
         </div>
         <div class="step-card">
           <div class="step-num">M3</div>
@@ -241,8 +216,8 @@
             <span class="lang-zh">GPS + 四捨五入面積（±5 m²）</span>
             <span class="lang-en">GPS + Rounded Area (±5 m²)</span>
           </h4>
-          <p class="lang-zh">GPS 座標加上四捨五入至最近 5 m² 的建物/土地面積。約 <strong>22,200</strong> 筆獨特不動產。減少跨交易間細微測量差異造成的配對錯誤。</p>
-          <p class="lang-en">GPS coordinates plus building/land areas rounded to the nearest 5 m². Approximately <strong>22,200</strong> unique properties. Reduces mismatches arising from minor measurement differences across transactions.</p>
+          <p class="lang-zh">GPS 座標加上四捨五入至最近 5 m² 的建物/土地面積，涵蓋約 <strong>7%</strong> 的交易。減少跨交易間細微測量差異造成的配對錯誤。</p>
+          <p class="lang-en">GPS coordinates plus building/land areas rounded to the nearest 5 m², covering ~<strong>7%</strong> of transactions. Reduces mismatches from minor measurement differences across transactions.</p>
         </div>
         <div class="step-card">
           <div class="step-num">M4</div>
@@ -250,8 +225,8 @@
             <span class="lang-zh">GPS + 精確整數面積</span>
             <span class="lang-en">GPS + Exact Integer Area</span>
           </h4>
-          <p class="lang-zh">最嚴格：GPS 座標加上整數四捨五入的建物面積必須吻合。約 <strong>15,500</strong> 筆獨特不動產及 <strong>33,500</strong> 筆交易。最小化錯誤的不動產配對。</p>
-          <p class="lang-en">Most stringent: GPS coordinates plus integer-rounded building area must match. Approximately <strong>15,500</strong> unique properties and <strong>33,500</strong> transactions. Minimizes false positive property matches.</p>
+          <p class="lang-zh">最嚴格：GPS 座標加上整數四捨五入的建物面積必須吻合，涵蓋約 <strong>5%</strong> 的交易。最小化錯誤的不動產配對。</p>
+          <p class="lang-en">Most stringent: GPS coordinates plus integer-rounded building area must match, covering ~<strong>5%</strong> of transactions. Minimizes false positive property matches.</p>
         </div>
       </div>
 
@@ -260,51 +235,6 @@
     </div>
   </div>
 
-  <!-- ── Construction Workflow ─────────────────────────────────── -->
-  <div class="card">
-    <div class="method-section">
-      <h2 data-i18n="meth.wf.title">指數建構流程</h2>
-
-      <div class="step-grid" style="grid-template-columns: repeat(auto-fill, minmax(220px,1fr))">
-        <div class="step-card">
-          <div class="step-num">1</div>
-          <h4>make_master_tw.do</h4>
-          <p class="lang-zh">匯入所有城市代碼的季度 CSV 檔。將中文變數名稱轉換為英文。處理舊格式（無標題行）及新格式（含標題行）CSV。依交易類型輸出主要 .dta 檔。</p>
-          <p class="lang-en">Imports quarterly CSV files for all city codes. Renames Chinese variables to English. Handles old (no header) and new (with header) CSV formats. Outputs master .dta files by transaction type.</p>
-        </div>
-        <div class="step-card">
-          <div class="step-num">2</div>
-          <h4>make_estim_sample_tw.do</h4>
-          <p class="lang-zh">合併買賣及預售資料。套用公平交易篩選條件。轉換民國曆日期。建立特徵控制變數（屋齡、面積、房間數、建材、設施）。</p>
-          <p class="lang-en">Combines sales and presale data. Applies arm's-length filters. Converts ROC calendar dates. Creates hedonic control variables (age, area, rooms, material, amenities).</p>
-        </div>
-        <div class="step-card">
-          <div class="step-num">3</div>
-          <h4>make_repeat_sales_tw.do</h4>
-          <p class="lang-zh">以四種方法辨識重複銷售配對。依城市 × 不動產類型執行 reghdfe 迴歸。提取時間固定效果係數並以 exp() 轉換為價格指數。</p>
-          <p class="lang-en">Identifies repeat-sale pairs using all 4 methods. Runs reghdfe regressions by city × property type. Extracts time-fixed-effect coefficients and converts to price indices via exp() transformation.</p>
-        </div>
-        <div class="step-card">
-          <div class="step-num">4</div>
-          <h4>make_repeat_sales_pre2012.do</h4>
-          <p class="lang-zh">將相同方法應用於2012年前的資料集（local_building_clean.dta），並在2012Q3 接合點將結果指數接合至2012年後的序列。</p>
-          <p class="lang-en">Applies the same methodology to the pre-2012 dataset (local_building_clean.dta) and splices the resulting index to the post-2012 series at the 2012Q3 junction.</p>
-        </div>
-        <div class="step-card">
-          <div class="step-num">5</div>
-          <h4>make_fulltime_annual.do</h4>
-          <p class="lang-zh">將季指數聚合為年頻率，並將2012年前後的年指數整合為自2000年起的連續序列。</p>
-          <p class="lang-en">Aggregates the quarterly series to annual frequency and merges the pre- and post-2012 annual indices into a continuous series from 2000 onward.</p>
-        </div>
-        <div class="step-card">
-          <div class="step-num">6</div>
-          <h4>time_series_plot.do</h4>
-          <p class="lang-zh">合併 CL 指數與信義、國泰、安富及官方比較指數。標準化為2001Q1，並輸出適合發表的 EPS 圖表。</p>
-          <p class="lang-en">Merges CL indices with Sinyi, Cathay, AIFE, and Official comparison indices. Normalizes to 2001Q1 and exports publication-quality EPS plots.</p>
-        </div>
-      </div>
-    </div>
-  </div>
 
   <!-- ── Sample Selection ───────────────────────────────────────── -->
   <div class="card">
@@ -348,8 +278,6 @@
         <span class="lang-en">Appendix Section D describes the full methodology for quality-adjusted pricing dynamics, including the regression specification (Equations D.1–D.2), the four property-matching methods, and comparison with the Official and Sinyi indices.</span>
       </div>
 
-      <p class="lang-zh">複製程式碼（Stata）位於 <code>code/</code> 目錄。主程式 <code>run_this_code.do</code> 可從原始內政部 CSV 檔重現所有結果。</p>
-      <p class="lang-en">Replication code (Stata) is available in the <code>code/</code> directory. The master script <code>run_this_code.do</code> reproduces all results from raw MOI CSV files.</p>
     </div>
   </div>
 

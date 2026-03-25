@@ -24,7 +24,7 @@ const TRANSLATIONS = {
 
     /* ── index.html ──────────────────────────────────────────────── */
     'index.hero.title':    '臺灣住宅價格指數',
-    'index.hero.desc':     '以重複交易法建構臺灣14個行政區之季度與年度住宅價格指數，2000Q1–2025Q4。資料來源：內政部不動產交易實價登錄。',
+    'index.hero.desc':     '以重複交易法建構臺灣15個行政區之季度與年度住宅價格指數，2000Q1–2025Q4。資料來源：內政部不動產交易實價登錄。',
     'index.dl.label':      '📥 下載資料：',
     'index.dl.q_csv':      '季指數 (CSV)',
     'index.dl.a_csv':      '年指數 (CSV)',
@@ -114,7 +114,7 @@ const TRANSLATIONS = {
 
     /* ── index.html ──────────────────────────────────────────────── */
     'index.hero.title':    'Taiwan Housing Price Index',
-    'index.hero.desc':     'Repeat-sales based house price indices for 14 regions of Taiwan, 2000Q1–2025Q4. Based on transaction-level data from the Ministry of Interior.',
+    'index.hero.desc':     'Repeat-sales based housing price indices for 15 regions of Taiwan, 2000Q1–2025Q4. Based on transaction-level data from the Ministry of Interior.',
     'index.dl.label':      '📥 Download Data:',
     'index.dl.q_csv':      'Quarterly Index (CSV)',
     'index.dl.a_csv':      'Annual Index (CSV)',
@@ -210,11 +210,11 @@ const CITY_LABELS_ZH = {
 
 /* ── Index label translations ─────────────────────────────────────── */
 const INDEX_LABELS_ZH = {
-  cll:     'CL 指數（本研究）',
+  cll:     'CL 指數（本網站）',
   official: '內政部住宅價格指數',
   sinyi:    '信義房屋住宅價格指數',
   cathay:   '國泰房地產指數',
-  aife:     '清華安富房價指數',
+  aife:     '清華安富指數',
 };
 
 /* ── Helper functions ─────────────────────────────────────────────── */
