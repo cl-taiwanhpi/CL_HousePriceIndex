@@ -65,7 +65,7 @@ const TRANSLATIONS = {
     'comp.base':          '基期',
 
     /* ── map.html ────────────────────────────────────────────────── */
-    'map.hero.title':     'GIS 地圖 — 各地區住宅價格',
+    'map.hero.title':     '地圖 — 各地區住宅價格',
     'map.hero.desc':      '將滑鼠移至或點擊任一地區，查看最新住宅價格指數及增長率。',
     'map.note':           '💡 顯示為<strong>藍色梯度</strong>的地區有 CL 指數資料。灰色地區（苗栗、南投、彰化、宜蘭）未單獨涵蓋於此指數中。新竹市+縣及嘉義市+縣各別整合為一個地區。',
     'map.panel.hover':    '將滑鼠移至地區',
@@ -103,7 +103,7 @@ const TRANSLATIONS = {
     /* ── Page titles ─────────────────────────────────────────────── */
     'page.title.index':       'CL Taiwan Housing Price Index',
     'page.title.comparison':  'Index Comparison – Taiwan HPI',
-    'page.title.map':         'GIS Map – Taiwan HPI',
+    'page.title.map':         'Map – Taiwan HPI',
     'page.title.methodology': 'Methodology – Taiwan HPI',
 
     /* ── Nav ─────────────────────────────────────────────────────── */
