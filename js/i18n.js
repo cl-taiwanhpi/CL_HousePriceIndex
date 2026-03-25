@@ -24,7 +24,7 @@ const TRANSLATIONS = {
 
     /* ── index.html ──────────────────────────────────────────────── */
     'index.hero.title':    'CL 臺灣住宅價格指數',
-    'index.hero.desc':     '以重複交易法建構臺灣15個行政區之季度與年度住宅價格指數，2000Q1–2025Q4。資料來源：內政部不動產交易實價登錄。',
+    'index.hero.desc':     '以混合重複銷售特徵評估法建構臺灣15個行政區之季度與年度住宅價格指數，2000Q1–2025Q4。資料來源：內政部不動產交易實價登錄。',
     'index.dl.label':      '📥 下載資料：',
     'index.dl.q_csv':      '季指數 (CSV)',
     'index.dl.a_csv':      '年指數 (CSV)',
@@ -45,11 +45,11 @@ const TRANSLATIONS = {
     'index.tbl.qoq':       '季增率',
     'index.tbl.yoy':       '年增率',
     'index.tbl.note':      '基期：2000Q1 = 1.00。季增率 = 季對季；年增率 = 年對年（4季）。',
-    'index.footer':        '臺灣住宅價格指數 &nbsp;|&nbsp; 資料來源：內政部實價登錄 &nbsp;|&nbsp; 方法論：CL 重複交易指數',
+    'index.footer':        '臺灣住宅價格指數 &nbsp;|&nbsp; 資料來源：內政部實價登錄 &nbsp;|&nbsp; 方法論：CL 混合重複銷售特徵評估指數',
 
     /* ── comparison.html ─────────────────────────────────────────── */
     'comp.hero.title':    '臺灣住宅價格指數比較',
-    'comp.hero.desc':     'CL 指數與官方（內政部）、信義、國泰及安富指數之比較，所有指數以 2012Q3 = 1.00 為基準。',
+    'comp.hero.desc':     'CL 混合重複銷售特徵評估指數與官方（內政部）、信義、國泰及安富指數之比較，所有指數以 2012Q3 = 1.00 為基準。',
     'comp.note':          '💡 <strong>資料涵蓋：</strong>CL 指數涵蓋至 2025Q4；信義（2025Q4）、國泰（2025Q4）、安富（2025Q4）及官方（2025Q3）指數已更新至最新可取得資料。',
     'comp.dl.label':      '📥 下載：',
     'comp.dl.csv':        '所有指數 (CSV)',
@@ -60,7 +60,7 @@ const TRANSLATIONS = {
     'comp.about.title':   '各指數說明',
     'comp.corr.title':    '指數間相關係數（重疊期間 2012Q3–2025Q3）',
     'comp.corr.note':     '皮爾森相關係數，計算所有兩指數均有有效資料的季度。',
-    'comp.footer':        '臺灣住宅價格指數 &nbsp;|&nbsp; 資料來源：內政部、信義、國泰、安富/清大、CL 重複交易',
+    'comp.footer':        '臺灣住宅價格指數 &nbsp;|&nbsp; 資料來源：內政部、信義、國泰、安富/清大、CL 混合重複銷售特徵評估',
     'comp.coverage':      '涵蓋期間',
     'comp.base':          '基期',
 
@@ -88,15 +88,15 @@ const TRANSLATIONS = {
 
     /* ── methodology.html ────────────────────────────────────────── */
     'meth.hero.title':    '研究方法',
-    'meth.hero.desc':     'CL 重複交易住宅價格指數的建構方式，以及其與現有臺灣價格指數之差異。',
+    'meth.hero.desc':     'CL 混合重複銷售特徵評估住宅價格指數的建構方式，以及其與現有臺灣價格指數之差異。',
     'meth.adv.title':     'CL 指數之主要特點',
     'meth.src.title':     '資料來源',
-    'meth.rs.title':      '重複交易迴歸',
+    'meth.rs.title':      '混合重複銷售特徵評估迴歸',
     'meth.methods.title': '四種房屋配對方法',
     'meth.wf.title':      '指數建構流程',
     'meth.sample.title':  '樣本篩選標準',
     'meth.cite.title':    '參考文獻',
-    'meth.footer':        '臺灣住宅價格指數 &nbsp;|&nbsp; 方法論基於 CL 重複交易框架 &nbsp;|&nbsp; 資料：內政部實價登錄',
+    'meth.footer':        '臺灣住宅價格指數 &nbsp;|&nbsp; 方法論基於 CL 混合重複銷售特徵評估框架 &nbsp;|&nbsp; 資料：內政部實價登錄',
   },
 
   en: {
@@ -114,7 +114,7 @@ const TRANSLATIONS = {
 
     /* ── index.html ──────────────────────────────────────────────── */
     'index.hero.title':    'CL Taiwan Housing Price Index',
-    'index.hero.desc':     'Repeat-sales based housing price indices for 15 regions of Taiwan, 2000Q1–2025Q4. Based on transaction-level data from the Ministry of Interior.',
+    'index.hero.desc':     'Hybrid repeat-sales-hedonic housing price indices for 15 regions of Taiwan, 2000Q1–2025Q4. Based on transaction-level data from the Ministry of Interior.',
     'index.dl.label':      '📥 Download Data:',
     'index.dl.q_csv':      'Quarterly Index (CSV)',
     'index.dl.a_csv':      'Annual Index (CSV)',
@@ -135,11 +135,11 @@ const TRANSLATIONS = {
     'index.tbl.qoq':       'QoQ Growth',
     'index.tbl.yoy':       'YoY Growth',
     'index.tbl.note':      'Base period: 2000Q1 = 1.00. QoQ = quarter-on-quarter; YoY = year-on-year (4 quarters).',
-    'index.footer':        'Taiwan Housing Price Index &nbsp;|&nbsp; Data: Ministry of Interior (MOI) Actual Price Registration &nbsp;|&nbsp; Methodology: CL Repeat-Sales Index',
+    'index.footer':        'Taiwan Housing Price Index &nbsp;|&nbsp; Data: Ministry of Interior (MOI) Actual Price Registration &nbsp;|&nbsp; Methodology: CL Hybrid Repeat-Sales-Hedonic Index',
 
     /* ── comparison.html ─────────────────────────────────────────── */
     'comp.hero.title':    'Comparison of Taiwan Housing Price Indices',
-    'comp.hero.desc':     'The CL repeat-sales index plotted alongside the Official (MOI), Sinyi, Cathay, and AIFE indices. All indices normalized to 2012Q3 = 1.00.',
+    'comp.hero.desc':     'The CL hybrid repeat-sales-hedonic index plotted alongside the Official (MOI), Sinyi, Cathay, and AIFE indices. All indices normalized to 2012Q3 = 1.00.',
     'comp.note':          '💡 <strong>Data coverage:</strong> CL index runs through 2025Q4. Sinyi (2025Q4), Cathay (2025Q4), AIFE (2025Q4), and Official (2025Q3) indices are updated to the latest available data.',
     'comp.dl.label':      '📥 Download:',
     'comp.dl.csv':        'All Indices (CSV)',
@@ -150,7 +150,7 @@ const TRANSLATIONS = {
     'comp.about.title':   'About Each Index',
     'comp.corr.title':    'Cross-Index Correlation (overlapping period 2012Q3–2025Q3)',
     'comp.corr.note':     'Pearson correlation coefficients computed over all quarters where both indices have valid data.',
-    'comp.footer':        'Taiwan Housing Price Index &nbsp;|&nbsp; Data sources: MOI, Sinyi, Cathay, AIFE/NTHU, CL repeat-sales',
+    'comp.footer':        'Taiwan Housing Price Index &nbsp;|&nbsp; Data sources: MOI, Sinyi, Cathay, AIFE/NTHU, CL hybrid repeat-sales-hedonic',
     'comp.coverage':      'Coverage',
     'comp.base':          'Base',
 
@@ -178,15 +178,15 @@ const TRANSLATIONS = {
 
     /* ── methodology.html ────────────────────────────────────────── */
     'meth.hero.title':    'Methodology',
-    'meth.hero.desc':     'How the CL Repeat-Sales Housing Price Index is constructed — and why it improves on existing Taiwan price indices.',
+    'meth.hero.desc':     'How the CL Hybrid Repeat-Sales-Hedonic Housing Price Index is constructed — and why it improves on existing Taiwan price indices.',
     'meth.adv.title':     'Key Advantages of the CL Index',
     'meth.src.title':     'Data Source',
-    'meth.rs.title':      'Repeat-Sales Regression',
+    'meth.rs.title':      'Hybrid Repeat-Sales-Hedonic Regression',
     'meth.methods.title': 'Four Property-Matching Methods',
     'meth.wf.title':      'Index Construction Workflow',
     'meth.sample.title':  'Sample Selection Criteria',
     'meth.cite.title':    'Reference',
-    'meth.footer':        'Taiwan Housing Price Index &nbsp;|&nbsp; Methodology based on CL repeat-sales framework &nbsp;|&nbsp; Data: Ministry of Interior APR',
+    'meth.footer':        'Taiwan Housing Price Index &nbsp;|&nbsp; Methodology based on CL hybrid repeat-sales-hedonic framework &nbsp;|&nbsp; Data: Ministry of Interior APR',
   }
 };
 

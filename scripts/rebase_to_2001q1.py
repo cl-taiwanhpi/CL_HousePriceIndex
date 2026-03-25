@@ -57,7 +57,7 @@ CITY_META = {
 }
 
 INDEX_META = {
-    "cll":      {"label": "CL Index (This Study)", "color": "#e74c3c"},
+    "cll":      {"label": "CL Index (This Website)", "color": "#e74c3c"},
     "official": {"label": "Official (MOI)",         "color": "#2980b9"},
     "sinyi":    {"label": "Sinyi HPI",              "color": "#27ae60"},
     "cathay":   {"label": "Cathay HPI",             "color": "#f39c12"},
