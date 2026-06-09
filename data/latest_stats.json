@@ -2,99 +2,99 @@
   "all": {
     "label": "Taiwan Overall",
     "latest_q": "2026Q1",
-    "latest_val": 3.2301,
-    "qoq_growth": -1.29,
-    "yoy_growth": -0.72
+    "latest_val": 3.2194,
+    "qoq_growth": -1.03,
+    "yoy_growth": 0.84
   },
   "taipei": {
     "label": "Taipei City",
     "latest_q": "2026Q1",
-    "latest_val": 3.2356,
-    "qoq_growth": 1.64,
-    "yoy_growth": 2.82
+    "latest_val": 3.2139,
+    "qoq_growth": 1.43,
+    "yoy_growth": 3.5
   },
   "taichung": {
     "label": "Taichung City",
     "latest_q": "2026Q1",
-    "latest_val": 3.1857,
-    "qoq_growth": 4.28,
-    "yoy_growth": -0.44
+    "latest_val": 3.19,
+    "qoq_growth": 3.74,
+    "yoy_growth": 0.52
   },
   "keelung": {
     "label": "Keelung City",
     "latest_q": "2026Q1",
-    "latest_val": 2.2699,
-    "qoq_growth": -15.59,
-    "yoy_growth": -12.6
+    "latest_val": 2.4866,
+    "qoq_growth": -8.38,
+    "yoy_growth": -3.47
   },
   "tainan": {
     "label": "Tainan City",
     "latest_q": "2026Q1",
-    "latest_val": 3.2627,
-    "qoq_growth": -4.81,
-    "yoy_growth": 1.36
+    "latest_val": 3.3034,
+    "qoq_growth": -2.54,
+    "yoy_growth": 4.61
   },
   "kaohsiung": {
     "label": "Kaohsiung City",
     "latest_q": "2026Q1",
-    "latest_val": 2.5562,
-    "qoq_growth": 2.25,
-    "yoy_growth": 7.61
+    "latest_val": 2.4286,
+    "qoq_growth": -1.56,
+    "yoy_growth": 4.5
   },
   "newtaipei": {
     "label": "New Taipei City",
     "latest_q": "2026Q1",
-    "latest_val": 3.3192,
-    "qoq_growth": -0.32,
-    "yoy_growth": -0.99
+    "latest_val": 3.3189,
+    "qoq_growth": -0.19,
+    "yoy_growth": 0.68
   },
   "taoyuan": {
     "label": "Taoyuan City",
     "latest_q": "2026Q1",
-    "latest_val": 2.5711,
-    "qoq_growth": 0.18,
-    "yoy_growth": -2.4
+    "latest_val": 2.5413,
+    "qoq_growth": -0.43,
+    "yoy_growth": -1.59
   },
   "chiayi": {
     "label": "Chiayi City/County",
     "latest_q": "2026Q1",
-    "latest_val": 2.6417,
-    "qoq_growth": 12.78,
-    "yoy_growth": 12.66
+    "latest_val": 2.4362,
+    "qoq_growth": 5.91,
+    "yoy_growth": 8.69
   },
   "hsinchu": {
     "label": "Hsinchu City/County",
     "latest_q": "2026Q1",
-    "latest_val": 3.9041,
-    "qoq_growth": -26.3,
-    "yoy_growth": -28.48
+    "latest_val": 4.059,
+    "qoq_growth": -22.1,
+    "yoy_growth": -24.0
   },
   "yunlin": {
     "label": "Yunlin County",
     "latest_q": "2026Q1",
-    "latest_val": 1.9869,
-    "qoq_growth": -6.97,
-    "yoy_growth": -3.53
+    "latest_val": 1.7959,
+    "qoq_growth": -8.71,
+    "yoy_growth": -5.93
   },
   "pingtung": {
     "label": "Pingtung County",
     "latest_q": "2026Q1",
-    "latest_val": 2.3965,
-    "qoq_growth": -3.72,
-    "yoy_growth": 4.37
+    "latest_val": 2.3203,
+    "qoq_growth": -2.12,
+    "yoy_growth": 5.4
   },
   "hualien": {
     "label": "Hualien County",
     "latest_q": "2026Q1",
-    "latest_val": 3.6354,
-    "qoq_growth": -0.2,
-    "yoy_growth": -8.13
+    "latest_val": 4.0422,
+    "qoq_growth": 13.4,
+    "yoy_growth": 5.55
   },
   "taitung": {
     "label": "Taitung County",
     "latest_q": "2025Q4",
-    "latest_val": 3.9602,
-    "qoq_growth": -4.22,
-    "yoy_growth": -8.92
+    "latest_val": 3.9346,
+    "qoq_growth": -3.59,
+    "yoy_growth": -8.85
   }
 }
